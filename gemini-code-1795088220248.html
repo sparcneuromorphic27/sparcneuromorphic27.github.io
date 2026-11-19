@@ -1,0 +1,1128 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Neuromorphic Computing for Edge AI | SPARC Workshop 2027 - IIT Bombay</title>
+  <meta name="description" content="SPARC Sponsored International Workshop on Neuromorphic Computing for Edge AI: Device, Circuit, Algorithm Co-Design at IIT Bombay on January 11–12, 2027." />
+  
+  <!-- Google Fonts: Plus Jakarta Sans & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Plus Jakarta Sans', 'sans-serif'],
+          },
+          colors: {
+            navy: {
+              950: '#080D1A',
+              900: '#0F172A',
+              800: '#1E293B',
+            },
+            brand: {
+              cyan: '#0284C7',
+              light: '#38BDF8',
+              indigo: '#4F46E5',
+            }
+          }
+        }
+      }
+    };
+  </script>
+
+  <style>
+    /* Custom subtle glassmorphism and scrollbar styling */
+    .glass-nav {
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+    .hero-gradient {
+      background: radial-gradient(circle at 80% 20%, rgba(2, 132, 199, 0.18) 0%, rgba(15, 23, 42, 0) 45%),
+                  radial-gradient(circle at 20% 80%, rgba(79, 70, 229, 0.18) 0%, rgba(15, 23, 42, 0) 45%),
+                  #0F172A;
+    }
+  </style>
+</head>
+
+<body class="bg-slate-50 text-slate-800 antialiased selection:bg-sky-600 selection:text-white">
+
+  <!-- ===================================================================== -->
+  <!-- TOP INSTITUTIONAL STRIP                                               -->
+  <!-- ===================================================================== -->
+  <div class="bg-white border-b border-slate-200 py-2.5 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-4">
+      <!-- Left: IIT Bombay & Dept. of EE -->
+      <div class="flex items-center gap-3">
+        <img 
+          src="https://upload.wikimedia.org/wikipedia/en/1/1d/Indian_Institute_of_Technology_Bombay_Logo.svg" 
+          alt="IIT Bombay Logo" 
+          class="h-10 w-10 object-contain"
+          onerror="this.onerror=null; this.src='https://placehold.co/80x80/0F172A/FFFFFF?text=IITB';"
+        />
+        <div class="leading-tight">
+          <p class="text-xs sm:text-sm font-bold text-slate-900 tracking-tight">Department of Electrical Engineering</p>
+          <p class="text-[11px] sm:text-xs text-slate-500 font-medium">Indian Institute of Technology Bombay, Mumbai</p>
+        </div>
+      </div>
+
+      <!-- Right: SPARC & Ministry of Education Logos -->
+      <div class="flex items-center gap-4 sm:gap-6">
+        <div class="flex items-center gap-2 bg-slate-50 px-2.5 py-1 rounded-lg border border-slate-200/80">
+          <img 
+            src="https://www.bits-pilani.ac.in/wp-content/uploads/SPARC_COllabration.png" 
+            alt="SPARC Collaboration Logo" 
+            class="h-8 sm:h-9 w-auto object-contain"
+            onerror="this.onerror=null; this.src='https://placehold.co/140x40/0284C7/FFFFFF?text=SPARC+India';"
+          />
+        </div>
+        <div class="hidden sm:flex items-center gap-2 bg-slate-50 px-2.5 py-1 rounded-lg border border-slate-200/80">
+          <img 
+            src="https://upload.wikimedia.org/wikipedia/commons/b/bd/Ministry_of_Education_India.svg" 
+            alt="Ministry of Education, Government of India" 
+            class="h-8 sm:h-9 w-auto object-contain"
+            onerror="this.onerror=null; this.src='https://placehold.co/140x40/1E293B/FFFFFF?text=MoE+India';"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================================================================== -->
+  <!-- STICKY NAVIGATION BAR                                                 -->
+  <!-- ===================================================================== -->
+  <header class="sticky top-0 z-40 glass-nav border-b border-slate-200/80 shadow-xs">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <!-- Brand / Domain Tag -->
+        <a href="#" class="flex items-center gap-2.5 group">
+          <span class="inline-flex items-center justify-center w-9 h-9 rounded-xl bg-navy-900 text-sky-400 font-display font-extrabold text-sm shadow-sm group-hover:bg-sky-600 group-hover:text-white transition-colors">
+            N27
+          </span>
+          <div>
+            <span class="font-display font-bold text-slate-900 text-base tracking-tight block leading-none">SPARC<span class="text-sky-600">Neuro</span>27</span>
+            <span class="text-[10px] font-medium text-slate-500 uppercase tracking-wider">IIT Bombay • Jan 11–12, 2027</span>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation Links -->
+        <nav class="hidden md:flex items-center gap-7 text-sm font-medium text-slate-600">
+          <a href="#about" class="hover:text-sky-600 transition-colors">About &amp; Theme</a>
+          <a href="#speakers" class="hover:text-sky-600 transition-colors">PI &amp; Speakers</a>
+          <a href="#schedule" class="hover:text-sky-600 transition-colors">Schedule</a>
+          <a href="#registration" class="hover:text-sky-600 transition-colors">Registration</a>
+          <a href="#venue" class="hover:text-sky-600 transition-colors">Venue</a>
+        </nav>
+
+        <!-- Desktop CTA & Mobile Menu Toggle -->
+        <div class="flex items-center gap-3">
+          <button 
+            onclick="openRegModal()" 
+            class="bg-sky-600 hover:bg-sky-700 text-white font-semibold text-sm px-4 py-2.5 rounded-xl shadow-sm hover:shadow transition-all cursor-pointer">
+            Register Now
+          </button>
+          <button 
+            id="mobile-menu-btn" 
+            aria-label="Toggle Menu"
+            class="md:hidden p-2 rounded-xl text-slate-600 hover:bg-slate-100 focus:outline-none">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-slate-200 px-4 pt-3 pb-5 space-y-2 shadow-lg">
+      <a href="#about" class="block px-3 py-2.5 rounded-xl text-sm font-medium text-slate-700 hover:bg-slate-50 hover:text-sky-600">About &amp; Theme</a>
+      <a href="#speakers" class="block px-3 py-2.5 rounded-xl text-sm font-medium text-slate-700 hover:bg-slate-50 hover:text-sky-600">PI &amp; Speakers</a>
+      <a href="#schedule" class="block px-3 py-2.5 rounded-xl text-sm font-medium text-slate-700 hover:bg-slate-50 hover:text-sky-600">Schedule</a>
+      <a href="#registration" class="block px-3 py-2.5 rounded-xl text-sm font-medium text-slate-700 hover:bg-slate-50 hover:text-sky-600">Registration</a>
+      <a href="#venue" class="block px-3 py-2.5 rounded-xl text-sm font-medium text-slate-700 hover:bg-slate-50 hover:text-sky-600">Venue &amp; Travel</a>
+    </div>
+  </header>
+
+  <!-- ===================================================================== -->
+  <!-- HERO SECTION WITH ANIMATED NEURAL SYNAPSE CANVAS                      -->
+  <!-- ===================================================================== -->
+  <section class="relative hero-gradient text-white overflow-hidden">
+    <!-- Interactive Neural Crossbar Canvas -->
+    <canvas id="neuralCanvas" class="absolute inset-0 w-full h-full pointer-events-none opacity-65"></canvas>
+
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 lg:py-28">
+      <div class="max-w-4xl">
+        <!-- Sponsor Pill -->
+        <div class="inline-flex flex-wrap items-center gap-2 px-3.5 py-1.5 rounded-full bg-sky-500/15 border border-sky-400/30 text-sky-300 text-xs sm:text-sm font-medium mb-6">
+          <span class="w-2 h-2 rounded-full bg-sky-400 animate-pulse"></span>
+          <span>SPARC Sponsored International Workshop • Ministry of Education, Govt. of India</span>
+        </div>
+
+        <!-- Main Workshop Title -->
+        <h1 class="font-display font-extrabold text-3xl sm:text-5xl lg:text-[3.35rem] tracking-tight leading-[1.14] text-white mb-6">
+          Neuromorphic Computing for Edge AI: 
+          <span class="text-transparent bg-clip-text bg-gradient-to-r from-sky-300 via-cyan-200 to-indigo-300">
+            Device, Circuit, Algorithm Co-Design
+          </span>
+        </h1>
+
+        <p class="text-slate-300 text-base sm:text-lg leading-relaxed max-w-3xl mb-8">
+          An Indo-UK academic workshop organized under the SPARC initiative bringing together researchers from 
+          <strong class="text-white font-semibold">IIT Bombay</strong>, <strong class="text-white font-semibold">The University of Sheffield (UK)</strong>, and <strong class="text-white font-semibold">IIT Madras</strong> to advance hybrid memristive-spintronic hardware and ultra-low-power Edge intelligence.
+        </p>
+
+        <!-- Key Event Metadata Cards -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3.5 mb-9 max-w-3xl">
+          <div class="bg-white/5 border border-white/10 backdrop-blur-sm rounded-2xl p-4 flex items-start gap-3">
+            <div class="p-2 rounded-xl bg-sky-500/20 text-sky-300 shrink-0">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+              </svg>
+            </div>
+            <div>
+              <p class="text-xs text-slate-400 uppercase tracking-wider font-semibold">Dates</p>
+              <p class="text-sm sm:text-base font-bold text-white mt-0.5">January 11–12, 2027</p>
+            </div>
+          </div>
+
+          <div class="bg-white/5 border border-white/10 backdrop-blur-sm rounded-2xl p-4 flex items-start gap-3">
+            <div class="p-2 rounded-xl bg-indigo-500/20 text-indigo-300 shrink-0">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <div>
+              <p class="text-xs text-slate-400 uppercase tracking-wider font-semibold">Timings</p>
+              <p class="text-sm sm:text-base font-bold text-white mt-0.5">9:00 AM – 5:00 PM IST</p>
+            </div>
+          </div>
+
+          <div class="bg-white/5 border border-white/10 backdrop-blur-sm rounded-2xl p-4 flex items-start gap-3">
+            <div class="p-2 rounded-xl bg-emerald-500/20 text-emerald-300 shrink-0">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+            </div>
+            <div>
+              <p class="text-xs text-slate-400 uppercase tracking-wider font-semibold">Venue</p>
+              <p class="text-sm sm:text-base font-bold text-white mt-0.5">EE Dept., IIT Bombay</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Primary Action Buttons -->
+        <div class="flex flex-wrap items-center gap-4">
+          <button 
+            onclick="openRegModal()" 
+            class="inline-flex items-center justify-center gap-2 bg-sky-500 hover:bg-sky-400 text-navy-950 font-bold text-sm sm:text-base px-6 py-3.5 rounded-xl shadow-lg shadow-sky-500/25 transition-all cursor-pointer">
+            <span>Register for Workshop</span>
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+            </svg>
+          </button>
+
+          <a 
+            href="#schedule" 
+            class="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/15 text-white border border-white/20 font-semibold text-sm sm:text-base px-6 py-3.5 rounded-xl transition-all">
+            <span>Explore Program Schedule</span>
+          </a>
+
+          <button 
+            onclick="downloadCalendarICS()" 
+            class="inline-flex items-center justify-center gap-2 text-sky-300 hover:text-white text-sm font-medium px-3 py-2.5 rounded-xl transition-colors cursor-pointer"
+            title="Download .ics calendar reminder">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+            </svg>
+            <span>Add to Calendar (.ics)</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================== -->
+  <!-- ABOUT THE WORKSHOP & SPARC PROJECT                                    -->
+  <!-- ===================================================================== -->
+  <section id="about" class="py-16 sm:py-24 bg-white border-b border-slate-200/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
+        <!-- Left Overview -->
+        <div class="lg:col-span-7">
+          <span class="text-xs font-bold uppercase tracking-widest text-sky-600">About the Workshop</span>
+          <h2 class="font-display font-extrabold text-2xl sm:text-4xl text-slate-900 mt-2 mb-5 tracking-tight">
+            Bridging Post-CMOS Materials &amp; Brain-Inspired Edge Intelligence
+          </h2>
+          <div class="space-y-4 text-slate-600 text-base leading-relaxed">
+            <p>
+              As artificial intelligence migrates from power-hungry cloud data centers to resource-constrained edge sensors and autonomous platforms, conventional von Neumann architectures face severe memory-wall and energy bottlenecks. Neuromorphic computing addresses this challenge by co-locating memory and computation using physics-driven synaptic devices and spiking neural algorithms.
+            </p>
+            <p>
+              Hosted by the <strong class="text-slate-800">Department of Electrical Engineering, IIT Bombay</strong>, this two-day SPARC-sponsored workshop brings together leading researchers from India and the UK alongside faculty members, doctoral scholars, and students across Indian academic institutions to explore end-to-end <strong class="text-slate-800">Device–Circuit–Algorithm Co-Design</strong>.
+            </p>
+          </div>
+        </div>
+
+        <!-- Right SPARC Project Grant Box -->
+        <div class="lg:col-span-5">
+          <div class="bg-slate-50 border border-slate-200 rounded-2xl p-6 sm:p-7 shadow-xs">
+            <div class="flex items-center justify-between gap-2 pb-4 mb-4 border-b border-slate-200">
+              <span class="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-indigo-700 bg-indigo-50 border border-indigo-200 px-3 py-1 rounded-full">
+                SPARC Funded Project
+              </span>
+              <span class="text-xs font-mono font-semibold text-slate-600 bg-white px-2.5 py-1 rounded-lg border border-slate-200">
+                RD/0126-SPARC00-001
+              </span>
+            </div>
+
+            <h3 class="font-display font-bold text-slate-900 text-base sm:text-lg leading-snug mb-4">
+              “Combining advantages of memristive oxide and spintronic materials in a single hybrid synapse device for neuromorphic computing applications”
+            </h3>
+
+            <dl class="space-y-3 text-sm">
+              <div class="flex justify-between gap-4">
+                <dt class="text-slate-500 font-medium">Funding Scheme:</dt>
+                <dd class="text-slate-800 font-semibold text-right">SPARC, Ministry of Education, India</dd>
+              </div>
+              <div class="flex justify-between gap-4">
+                <dt class="text-slate-500 font-medium">Indian Institution:</dt>
+                <dd class="text-slate-800 font-semibold text-right">IIT Bombay (EE Dept.)</dd>
+              </div>
+              <div class="flex justify-between gap-4">
+                <dt class="text-slate-500 font-medium">UK Partner:</dt>
+                <dd class="text-slate-800 font-semibold text-right">The University of Sheffield</dd>
+              </div>
+              <div class="flex justify-between gap-4">
+                <dt class="text-slate-500 font-medium">IRCC Project Code:</dt>
+                <dd class="text-sky-700 font-mono font-bold text-right">RD/0126-SPARC00-001</dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+      </div>
+
+      <!-- Three Core Pillars -->
+      <div class="mt-14 pt-12 border-t border-slate-200/80">
+        <div class="text-center max-w-2xl mx-auto mb-10">
+          <h3 class="font-display font-bold text-xl sm:text-2xl text-slate-900">Three Pillars of Co-Design</h3>
+          <p class="text-sm sm:text-base text-slate-500 mt-1.5">Integrated discussions spanning material physics to deployable Edge AI workloads.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <!-- Pillar 1: Device -->
+          <div class="bg-slate-50 hover:bg-white border border-slate-200 hover:border-sky-300 rounded-2xl p-6 transition-all shadow-xs hover:shadow-md">
+            <div class="w-12 h-12 rounded-xl bg-sky-100 text-sky-700 flex items-center justify-center mb-5">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
+              </svg>
+            </div>
+            <span class="text-xs font-bold uppercase tracking-wider text-sky-600">Layer 01</span>
+            <h4 class="font-display font-bold text-lg text-slate-900 mt-1 mb-2">Device Physics &amp; Materials</h4>
+            <p class="text-sm text-slate-600 leading-relaxed">
+              Memristive oxides, spintronic magnetic tunnel junctions (MTJs), domain-wall devices, and hybrid multi-state synaptic elements engineered for endurance and linearity.
+            </p>
+          </div>
+
+          <!-- Pillar 2: Circuit -->
+          <div class="bg-slate-50 hover:bg-white border border-slate-200 hover:border-indigo-300 rounded-2xl p-6 transition-all shadow-xs hover:shadow-md">
+            <div class="w-12 h-12 rounded-xl bg-indigo-100 text-indigo-700 flex items-center justify-center mb-5">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+              </svg>
+            </div>
+            <span class="text-xs font-bold uppercase tracking-wider text-indigo-600">Layer 02</span>
+            <h4 class="font-display font-bold text-lg text-slate-900 mt-1 mb-2">Neuromorphic Circuits &amp; Arrays</h4>
+            <p class="text-sm text-slate-600 leading-relaxed">
+              High-density crossbar arrays, analog/mixed-signal neuron circuits, peripheral readout interfaces, and compute-in-memory (CiM) macros mitigating device non-idealities.
+            </p>
+          </div>
+
+          <!-- Pillar 3: Algorithm -->
+          <div class="bg-slate-50 hover:bg-white border border-slate-200 hover:border-emerald-300 rounded-2xl p-6 transition-all shadow-xs hover:shadow-md">
+            <div class="w-12 h-12 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center mb-5">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+              </svg>
+            </div>
+            <span class="text-xs font-bold uppercase tracking-wider text-emerald-600">Layer 03</span>
+            <h4 class="font-display font-bold text-lg text-slate-900 mt-1 mb-2">Algorithms &amp; Edge AI</h4>
+            <p class="text-sm text-slate-600 leading-relaxed">
+              Spiking Neural Networks (SNNs), on-chip local learning rules (STDP), hardware-aware quantization, and event-driven Edge AI for vision, robotics, and biomedical sensing.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================== -->
+  <!-- SPEAKERS & PROJECT INVESTIGATORS SECTION                              -->
+  <!-- ===================================================================== -->
+  <section id="speakers" class="py-16 sm:py-24 bg-slate-50 border-b border-slate-200/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Section Header -->
+      <div class="max-w-3xl mb-12">
+        <span class="text-xs font-bold uppercase tracking-widest text-sky-600">Organizers &amp; Resource Persons</span>
+        <h2 class="font-display font-extrabold text-2xl sm:text-4xl text-slate-900 mt-2 tracking-tight">
+          Project Investigators &amp; Invited Speakers
+        </h2>
+        <p class="text-slate-600 text-base mt-3">
+          Featuring the Indo-UK SPARC Principal Investigators from IIT Bombay and The University of Sheffield, joined by distinguished invited speakers from IIT Madras.
+        </p>
+      </div>
+
+      <!-- GROUP 1: PROJECT INVESTIGATORS (PI & CO-PIs) -->
+      <div class="mb-14">
+        <div class="flex items-center gap-3 mb-6">
+          <h3 class="font-display font-bold text-lg sm:text-xl text-slate-900">SPARC Project Investigators (PI &amp; Co-PIs)</h3>
+          <span class="h-px flex-1 bg-slate-200"></span>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <!-- 1. Prof. Debanjan Bhowmik (Indian PI) -->
+          <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-xs hover:shadow-md transition-all flex flex-col">
+            <div class="flex items-center gap-4 mb-4">
+              <div class="relative w-20 h-20 rounded-2xl overflow-hidden bg-slate-100 border border-slate-200 shrink-0">
+                <img 
+                  src="https://www.ee.iitb.ac.in/images/professors/debanjan-bhowmik.webp" 
+                  alt="Prof. Debanjan Bhowmik" 
+                  class="w-full h-full object-cover object-top"
+                  onerror="this.onerror=null; this.src='https://placehold.co/160x160/0F172A/38BDF8?text=DB';"
+                />
+              </div>
+              <div>
+                <span class="inline-block text-[11px] font-bold uppercase tracking-wider bg-sky-50 text-sky-700 border border-sky-200 px-2.5 py-0.5 rounded-full mb-1.5">
+                  Principal Investigator (PI)
+                </span>
+                <h4 class="font-display font-bold text-lg text-slate-900 leading-snug">Prof. Debanjan Bhowmik</h4>
+                <p class="text-xs font-semibold text-slate-500 mt-0.5">Associate Professor</p>
+              </div>
+            </div>
+            <p class="text-sm font-medium text-slate-800">Department of Electrical Engineering</p>
+            <p class="text-sm text-sky-700 font-semibold mb-3">Indian Institute of Technology Bombay, India</p>
+            <p class="text-xs text-slate-600 leading-relaxed mt-auto pt-3 border-t border-slate-100">
+              <strong>Research Focus:</strong> Spintronic devices, magnetic domain-wall synapses, neuromorphic hardware, and analog compute-in-memory architectures.
+            </p>
+          </div>
+
+          <!-- 2. Prof. Merlyne De Souza (International PI / Co-PI) -->
+          <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-xs hover:shadow-md transition-all flex flex-col">
+            <div class="flex items-center gap-4 mb-4">
+              <!-- Styled Monogram Avatar (Ready for photo drop-in) -->
+              <div class="relative w-20 h-20 rounded-2xl overflow-hidden bg-gradient-to-br from-navy-900 to-indigo-800 text-white border border-slate-200 shrink-0 flex flex-col items-center justify-center shadow-inner">
+                <span class="font-display font-extrabold text-2xl tracking-tight text-sky-300">MD</span>
+                <span class="text-[9px] uppercase tracking-widest text-slate-300 mt-0.5">Sheffield</span>
+              </div>
+              <div>
+                <span class="inline-block text-[11px] font-bold uppercase tracking-wider bg-indigo-50 text-indigo-700 border border-indigo-200 px-2.5 py-0.5 rounded-full mb-1.5">
+                  International Co-PI (UK)
+                </span>
+                <h4 class="font-display font-bold text-lg text-slate-900 leading-snug">Prof. Merlyne De Souza</h4>
+                <p class="text-xs font-semibold text-slate-500 mt-0.5">Professor, School of EEE</p>
+              </div>
+            </div>
+            <p class="text-sm font-medium text-slate-800">School of Electrical &amp; Electronic Engineering</p>
+            <p class="text-sm text-indigo-700 font-semibold mb-1">The University of Sheffield, UK</p>
+            <a href="mailto:m.desouza@sheffield.ac.uk" class="text-xs text-slate-500 hover:text-sky-600 transition-colors mb-3 inline-block">
+              m.desouza@sheffield.ac.uk
+            </a>
+            <p class="text-xs text-slate-600 leading-relaxed mt-auto pt-3 border-t border-slate-100">
+              <strong>Research Focus:</strong> Semiconductor device physics, memristive oxide synapses, post-CMOS nanoelectronics, and compact device modeling.
+            </p>
+          </div>
+
+          <!-- 3. Dr. Matt Ellis (International Co-PI) -->
+          <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-xs hover:shadow-md transition-all flex flex-col">
+            <div class="flex items-center gap-4 mb-4">
+              <div class="relative w-20 h-20 rounded-2xl overflow-hidden bg-slate-100 border border-slate-200 shrink-0">
+                <img 
+                  src="https://sheffield.ac.uk/sites/default/files/styles/profile_modal/public/2023-07/CS_Headshots_036.jpg?h=46946bb3&itok=lZY7eMoo" 
+                  alt="Dr. Matt Ellis" 
+                  class="w-full h-full object-cover object-top"
+                  onerror="this.onerror=null; this.src='https://placehold.co/160x160/1E293B/38BDF8?text=ME';"
+                />
+              </div>
+              <div>
+                <span class="inline-block text-[11px] font-bold uppercase tracking-wider bg-indigo-50 text-indigo-700 border border-indigo-200 px-2.5 py-0.5 rounded-full mb-1.5">
+                  International Co-PI (UK)
+                </span>
+                <h4 class="font-display font-bold text-lg text-slate-900 leading-snug">Dr. Matt Ellis</h4>
+                <p class="text-xs font-semibold text-slate-500 mt-0.5">Senior Lecturer</p>
+              </div>
+            </div>
+            <p class="text-sm font-medium text-slate-800">School of Computer Science</p>
+            <p class="text-sm text-indigo-700 font-semibold mb-1">The University of Sheffield, UK</p>
+            <a href="mailto:m.o.ellis@sheffield.ac.uk" class="text-xs text-slate-500 hover:text-sky-600 transition-colors mb-3 inline-block">
+              m.o.ellis@sheffield.ac.uk
+            </a>
+            <p class="text-xs text-slate-600 leading-relaxed mt-auto pt-3 border-t border-slate-100">
+              <strong>Research Focus:</strong> Computational magnetism, atomistic spin dynamics, neuromorphic algorithms, and physical reservoir computing.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- GROUP 2: INVITED SPEAKERS -->
+      <div>
+        <div class="flex items-center gap-3 mb-6">
+          <h3 class="font-display font-bold text-lg sm:text-xl text-slate-900">Invited Speakers</h3>
+          <span class="h-px flex-1 bg-slate-200"></span>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <!-- 4. Prof. Bhaswar Chakrabarti (IIT Madras) -->
+          <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-xs hover:shadow-md transition-all flex flex-col sm:flex-row gap-5 items-start">
+            <div class="w-24 h-24 rounded-2xl overflow-hidden bg-slate-100 border border-slate-200 shrink-0">
+              <img 
+                src="https://i1.rgstatic.net/ii/profile.image/372923304038405-1465923252204_Q512/Bhaswar-Chakrabarti.jpg" 
+                alt="Prof. Bhaswar Chakrabarti" 
+                class="w-full h-full object-cover object-top"
+                onerror="this.onerror=null; this.src='https://placehold.co/160x160/0F172A/38BDF8?text=BC';"
+              />
+            </div>
+            <div class="flex-1">
+              <span class="inline-block text-[11px] font-bold uppercase tracking-wider bg-emerald-50 text-emerald-700 border border-emerald-200 px-2.5 py-0.5 rounded-full mb-1.5">
+                Invited Speaker
+              </span>
+              <h4 class="font-display font-bold text-lg text-slate-900">Prof. Bhaswar Chakrabarti</h4>
+              <p class="text-xs font-semibold text-slate-500">Associate Professor, Dept. of Electrical Engineering</p>
+              <p class="text-sm text-emerald-700 font-semibold mt-0.5 mb-2.5">Indian Institute of Technology Madras</p>
+              <p class="text-xs text-slate-600 leading-relaxed">
+                <strong>Expertise:</strong> Nanoscale electronic devices, resistive switching memories (RRAM), crossbar hardware arrays, and neuromorphic computation.
+              </p>
+            </div>
+          </div>
+
+          <!-- 5. Prof. V. Srinivasa Chakravarthy (IIT Madras) -->
+          <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-xs hover:shadow-md transition-all flex flex-col sm:flex-row gap-5 items-start">
+            <div class="w-24 h-24 rounded-2xl overflow-hidden bg-slate-100 border border-slate-200 shrink-0">
+              <img 
+                src="https://biotech.iitm.ac.in/faculty_website/CNS_LAB/srini.jpg" 
+                alt="Prof. V. Srinivasa Chakravarthy" 
+                class="w-full h-full object-cover object-top"
+                onerror="this.onerror=null; this.src='https://placehold.co/160x160/0F172A/38BDF8?text=SC';"
+              />
+            </div>
+            <div class="flex-1">
+              <span class="inline-block text-[11px] font-bold uppercase tracking-wider bg-emerald-50 text-emerald-700 border border-emerald-200 px-2.5 py-0.5 rounded-full mb-1.5">
+                Invited Speaker
+              </span>
+              <h4 class="font-display font-bold text-lg text-slate-900">Prof. V. Srinivasa Chakravarthy</h4>
+              <p class="text-xs font-semibold text-slate-500">Professor, Dept. of Biotechnology</p>
+              <p class="text-sm text-emerald-700 font-semibold mt-0.5 mb-2.5">Indian Institute of Technology Madras</p>
+              <p class="text-xs text-slate-600 leading-relaxed">
+                <strong>Expertise:</strong> Computational neuroscience, oscillatory neural networks, brain-inspired learning architectures, and neuro-inspired AI systems.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================== -->
+  <!-- INTERACTIVE TWO-DAY SCHEDULE SECTION                                  -->
+  <!-- ===================================================================== -->
+  <section id="schedule" class="py-16 sm:py-24 bg-white border-b border-slate-200/80">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10">
+        <div>
+          <div class="inline-flex items-center gap-2 mb-2">
+            <span class="text-xs font-bold uppercase tracking-widest text-sky-600">Workshop Program</span>
+            <span class="text-[11px] font-semibold bg-amber-50 text-amber-700 border border-amber-200 px-2.5 py-0.5 rounded-full">Tentative Schedule</span>
+          </div>
+          <h2 class="font-display font-extrabold text-2xl sm:text-4xl text-slate-900 tracking-tight">
+            Two-Day Technical Agenda
+          </h2>
+        </div>
+
+        <!-- Day Toggle Buttons -->
+        <div class="inline-flex p-1.5 bg-slate-100 rounded-2xl border border-slate-200 self-start sm:self-auto">
+          <button 
+            id="tab-day1" 
+            onclick="switchDay(1)" 
+            class="px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all bg-navy-900 text-white shadow-xs cursor-pointer">
+            Day 1 • Jan 11, 2027
+          </button>
+          <button 
+            id="tab-day2" 
+            onclick="switchDay(2)" 
+            class="px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all text-slate-600 hover:text-slate-900 cursor-pointer">
+            Day 2 • Jan 12, 2027
+          </button>
+        </div>
+      </div>
+
+      <!-- DAY 1 SCHEDULE PANEL -->
+      <div id="panel-day1" class="space-y-4">
+        <div class="bg-slate-50 border border-slate-200 rounded-2xl p-5 sm:p-6 flex flex-col sm:flex-row gap-4 sm:items-center">
+          <div class="sm:w-44 shrink-0">
+            <span class="text-xs font-bold text-sky-700 bg-sky-50 border border-sky-200 px-3 py-1 rounded-lg">09:00 AM – 09:45 AM</span>
+          </div>
+          <div>
+            <h4 class="font-display font-bold text-slate-900 text-base">Registration, Welcome &amp; Inaugural Address</h4>
+            <p class="text-sm text-slate-600 mt-1">Opening remarks by Head, Dept. of Electrical Engineering, IIT Bombay &amp; SPARC Project Overview by <strong>Prof. Debanjan Bhowmik</strong>.</p>
+          </div>
+        </div>
+
+        <div class="bg-white border border-slate-200 rounded-2xl p-5 sm:p-6 flex flex-col sm:flex-row gap-4 sm:items-center shadow-xs">
+          <div class="sm:w-44 shrink-0">
+            <span class="text-xs font-bold text-indigo-700 bg-indigo-50 border border-indigo-200 px-3 py-1 rounded-lg">09:45 AM – 11:00 AM</span>
+          </div>
+          <div>
+            <span class="text-[11px] font-bold uppercase tracking-wider text-indigo-600">Keynote Talk 1 • Device Physics</span>
+            <h4 class="font-display font-bold text-slate-900 text-base mt-0.5">Hybrid Memristive Oxide and Spintronic Synaptic Devices for Neuromorphic Hardware</h4>
+            <p class="text-sm text-slate-600 mt-1"><strong>Prof. Merlyne De Souza</strong> (The University of Sheffield, UK)</p>
+          </div>
+        </div>
+
+        <div class="bg-slate-50/70 border border-dashed border-slate-300 rounded-2xl px-5 py-3.5 flex flex-col sm:flex-row gap-4 sm:items-center">
+          <div class="sm:w-44 shrink-0">
+            <span class="text-xs font-semibold text-slate-500">11:00 AM – 11:30 AM</span>
+          </div>
+          <p class="text-sm font-medium text-slate-600">High Tea &amp; Networking Break</p>
+        </div>
+
+        <div class="bg-white border border-slate-200 rounded-2xl p-5 sm:p-6 flex flex-col sm:flex-row gap-4 sm:items-center shadow-xs">
+          <div class="sm:w-44 shrink-0">
+            <span class="text-xs font-bold text-emerald-700 bg-emerald-50 border border-emerald-200 px-3 py-1 rounded-lg">11:30 AM – 12:45 PM</span>
+          </div>
+          <div>
+            <span class="text-[11px] font-bold uppercase tracking-wider text-emerald-600">Invited Talk 1 • Nanoscale Memory &amp; Crossbars</span>
+            <h4 class="font-display font-bold text-slate-900 text-base mt-0.5">Emerging Resistive Memories and Crossbar Architectures for In-Memory Computing</h4>
+            <p class="text-sm text-slate-600 mt-1"><strong>Prof. Bhaswar Chakrabarti</strong> (IIT Madras)</p>
+          </div>
+        </div>
+
+        <div class="bg-slate-50/70 border border-dashed border-slate-300 rounded-2xl px-5 py-3.5 flex flex-col sm:flex-row gap-4 sm:items-center">
+          <div class="sm:w-44 shrink-0">
+            <span class="text-xs font-semibold text-slate-500">12:45 PM – 02:00 PM</span>
+          </div>
+          <p class="text-sm font-medium text-slate-600">Lunch Break (IIT Bombay Guest House / EE Lounge)</p>
+        </div>
+
+        <div class="bg-white border border-slate-200 rounded-2xl p-5 sm:p-6 flex flex-col sm:flex-row gap-4 sm:items-center shadow-xs">
+          <div class="sm:w-44 shrink-0">
+            <span class="text-xs font-bold text-sky-700 bg-sky-50 border border-sky-200 px-3 py-1 rounded-lg">02:00 PM – 03:30 PM</span>
+          </div>
+          <div>
+            <span class="text-[11px] font-bold uppercase tracking-wider text-sky-600">Technical Session • Spintronic Synapses</span>
+            <h4 class="font-display font-bold text-slate-900 text-base mt-0.5">Spintronic Neural Networks &amp; Multi-State Magnetic Domain Wall Devices</h4>
+            <p class="text-sm text-slate-600 mt-1"><strong>Prof. Debanjan Bhowmik</strong> (IIT Bombay) &amp; Research Group Presentations</p>
+          </div>
+        </div>
+
+        <div class="bg-white border border-slate-200 rounded-2xl p-5 sm:p-6 flex flex-col sm:flex-row gap-4 sm:items-center shadow-xs">
+          <div class="sm:w-44 shrink-0">
+            <span class="text-xs font-bold text-slate-700 bg-slate-100 border border-slate-200 px-3 py-1 rounded-lg">03:30 PM – 05:00 PM</span>
+          </div>
+          <div>
+            <span class="text-[11px] font-bold uppercase tracking-wider text-slate-500">Interactive Session</span>
+            <h4 class="font-display font-bold text-slate-900 text-base mt-0.5">Student Poster Session &amp; IIT Bombay Nanoelectronics Lab Tour</h4>
+            <p class="text-sm text-slate-600 mt-1">Tea served alongside poster interactions with participating students and faculty.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- DAY 2 SCHEDULE PANEL (Hidden by default) -->
+      <div id="panel-day2" class="hidden space-y-4">
+        <div class="bg-white border border-slate-200 rounded-2xl p-5 sm:p-6 flex flex-col sm:flex-row gap-4 sm:items-center shadow-xs">
+          <div class="sm:w-44 shrink-0">
+            <span class="text-xs font-bold text-indigo-700 bg-indigo-50 border border-indigo-200 px-3 py-1 rounded-lg">09:00 AM – 10:30 AM</span>
+          </div>
+          <div>
+            <span class="text-[11px] font-bold uppercase tracking-wider text-indigo-600">Keynote Talk 2 • Physical Reservoir &amp; Spin Modeling</span>
+            <h4 class="font-display font-bold text-slate-900 text-base mt-0.5">Computational Modeling of Spintronic Systems &amp; Neuromorphic Algorithms for Edge AI</h4>
+            <p class="text-sm text-slate-600 mt-1"><strong>Dr. Matt Ellis</strong> (The University of Sheffield, UK)</p>
+          </div>
+        </div>
+
+        <div class="bg-slate-50/70 border border-dashed border-slate-300 rounded-2xl px-5 py-3.5 flex flex-col sm:flex-row gap-4 sm:items-center">
+          <div class="sm:w-44 shrink-0">
+            <span class="text-xs font-semibold text-slate-500">10:30 AM – 11:00 AM</span>
+          </div>
+          <p class="text-sm font-medium text-slate-600">Morning Tea &amp; Coffee Break</p>
+        </div>
+
+        <div class="bg-white border border-slate-200 rounded-2xl p-5 sm:p-6 flex flex-col sm:flex-row gap-4 sm:items-center shadow-xs">
+          <div class="sm:w-44 shrink-0">
+            <span class="text-xs font-bold text-emerald-700 bg-emerald-50 border border-emerald-200 px-3 py-1 rounded-lg">11:00 AM – 12:30 PM</span>
+          </div>
+          <div>
+            <span class="text-[11px] font-bold uppercase tracking-wider text-emerald-600">Invited Talk 2 • Brain-Inspired Algorithms</span>
+            <h4 class="font-display font-bold text-slate-900 text-base mt-0.5">From Computational Neuroscience to Low-Power Neuromorphic Learning Architectures</h4>
+            <p class="text-sm text-slate-600 mt-1"><strong>Prof. V. Srinivasa Chakravarthy</strong> (IIT Madras)</p>
+          </div>
+        </div>
+
+        <div class="bg-slate-50/70 border border-dashed border-slate-300 rounded-2xl px-5 py-3.5 flex flex-col sm:flex-row gap-4 sm:items-center">
+          <div class="sm:w-44 shrink-0">
+            <span class="text-xs font-semibold text-slate-500">12:30 PM – 02:00 PM</span>
+          </div>
+          <p class="text-sm font-medium text-slate-600">Lunch Break</p>
+        </div>
+
+        <div class="bg-white border border-slate-200 rounded-2xl p-5 sm:p-6 flex flex-col sm:flex-row gap-4 sm:items-center shadow-xs">
+          <div class="sm:w-44 shrink-0">
+            <span class="text-xs font-bold text-sky-700 bg-sky-50 border border-sky-200 px-3 py-1 rounded-lg">02:00 PM – 03:30 PM</span>
+          </div>
+          <div>
+            <span class="text-[11px] font-bold uppercase tracking-wider text-sky-600">Hands-On Tutorial &amp; Co-Design Workshop</span>
+            <h4 class="font-display font-bold text-slate-900 text-base mt-0.5">Hardware-Aware SNN Simulation &amp; Device-to-System Benchmarking</h4>
+            <p class="text-sm text-slate-600 mt-1">Interactive demonstration led by IIT Bombay &amp; University of Sheffield research scholars.</p>
+          </div>
+        </div>
+
+        <div class="bg-slate-50 border border-slate-200 rounded-2xl p-5 sm:p-6 flex flex-col sm:flex-row gap-4 sm:items-center">
+          <div class="sm:w-44 shrink-0">
+            <span class="text-xs font-bold text-slate-800 bg-white border border-slate-200 px-3 py-1 rounded-lg">03:30 PM – 05:00 PM</span>
+          </div>
+          <div>
+            <h4 class="font-display font-bold text-slate-900 text-base">Panel Discussion, Certificate Distribution &amp; Valedictory</h4>
+            <p class="text-sm text-slate-600 mt-1">Panel on <em>"Future Roadmap for Indo-UK Collaboration in Neuromorphic Edge AI"</em> followed by concluding remarks.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================== -->
+  <!-- REGISTRATION & IMPORTANT DATES SECTION                                -->
+  <!-- ===================================================================== -->
+  <section id="registration" class="py-16 sm:py-24 bg-slate-50 border-b border-slate-200/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+        <!-- Left Info -->
+        <div class="lg:col-span-7">
+          <span class="text-xs font-bold uppercase tracking-widest text-sky-600">Participation</span>
+          <h2 class="font-display font-extrabold text-2xl sm:text-4xl text-slate-900 mt-2 mb-4 tracking-tight">
+            Registration &amp; Eligibility
+          </h2>
+          <p class="text-slate-600 text-base leading-relaxed mb-6">
+            In alignment with SPARC objectives to foster nationwide research capacity in emerging technologies, applications are invited from <strong class="text-slate-800">faculty members, postdoctoral fellows, PhD scholars, and M.Tech/B.Tech students</strong> across AICTE/UGC-recognized Indian institutions and R&amp;D laboratories.
+          </p>
+
+          <ul class="space-y-3 text-sm text-slate-700 mb-8">
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-sky-600 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+              </svg>
+              <span><strong>Zero Registration Fee:</strong> Supported under the SPARC grant (Ministry of Education, Govt. of India).</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-sky-600 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+              </svg>
+              <span><strong>Limited Seats:</strong> Participants will be shortlisted based on research alignment to ensure interactive sessions.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-sky-600 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+              </svg>
+              <span><strong>Participation Certificate:</strong> Official IIT Bombay – SPARC workshop certificate provided upon full attendance.</span>
+            </li>
+          </ul>
+
+          <button 
+            onclick="openRegModal()" 
+            class="inline-flex items-center gap-2 bg-navy-900 hover:bg-sky-600 text-white font-bold text-sm sm:text-base px-6 py-3.5 rounded-xl shadow-sm transition-colors cursor-pointer">
+            <span>Submit Online Application</span>
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            </svg>
+          </button>
+        </div>
+
+        <!-- Right Important Dates Card -->
+        <div class="lg:col-span-5">
+          <div class="bg-white border border-slate-200 rounded-2xl p-6 sm:p-8 shadow-sm">
+            <h3 class="font-display font-bold text-xl text-slate-900 mb-5 flex items-center gap-2">
+              <svg class="w-5 h-5 text-sky-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              <span>Important Dates</span>
+            </h3>
+
+            <div class="space-y-4">
+              <div class="flex items-center justify-between pb-3.5 border-b border-slate-100">
+                <span class="text-sm font-medium text-slate-600">Registration Opens</span>
+                <span class="text-sm font-bold text-slate-900">December 1, 2026</span>
+              </div>
+              <div class="flex items-center justify-between pb-3.5 border-b border-slate-100">
+                <span class="text-sm font-medium text-slate-600">Application Deadline</span>
+                <span class="text-sm font-bold text-amber-700 bg-amber-50 px-2.5 py-0.5 rounded-lg">December 22, 2026</span>
+              </div>
+              <div class="flex items-center justify-between pb-3.5 border-b border-slate-100">
+                <span class="text-sm font-medium text-slate-600">Selection Confirmation</span>
+                <span class="text-sm font-bold text-slate-900">December 28, 2026</span>
+              </div>
+              <div class="flex items-center justify-between pt-1">
+                <span class="text-sm font-semibold text-sky-700">Workshop Dates</span>
+                <span class="text-sm font-extrabold text-white bg-sky-600 px-3 py-1 rounded-lg">Jan 11–12, 2027</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================== -->
+  <!-- VENUE & TRAVEL SECTION                                                -->
+  <!-- ===================================================================== -->
+  <section id="venue" class="py-16 sm:py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+        <div class="lg:col-span-5">
+          <span class="text-xs font-bold uppercase tracking-widest text-sky-600">Location &amp; Reach</span>
+          <h2 class="font-display font-extrabold text-2xl sm:text-3xl text-slate-900 mt-2 mb-4 tracking-tight">
+            Department of Electrical Engineering, IIT Bombay
+          </h2>
+          <p class="text-sm sm:text-base text-slate-600 leading-relaxed mb-6">
+            Powai, Mumbai, Maharashtra 400076, India
+          </p>
+
+          <div class="space-y-4 text-sm text-slate-600">
+            <div class="bg-slate-50 border border-slate-200 rounded-xl p-4">
+              <p class="font-bold text-slate-900 mb-1">By Air</p>
+              <p>Chhatrapati Shivaji Maharaj International Airport (BOM), Mumbai is ~10 km (25–35 mins by cab) from the IIT Bombay Main Gate.</p>
+            </div>
+            <div class="bg-slate-50 border border-slate-200 rounded-xl p-4">
+              <p class="font-bold text-slate-900 mb-1">By Rail &amp; Metro</p>
+              <p>Nearest suburban railway stations are <strong>Kanjurmarg</strong> (~3 km) and <strong>Vikhroli</strong> (~4 km) on the Central Line.</p>
+            </div>
+            <div class="bg-slate-50 border border-slate-200 rounded-xl p-4">
+              <p class="font-bold text-slate-900 mb-1">Coordinator Contact</p>
+              <p>Prof. Debanjan Bhowmik, Dept. of Electrical Engineering, IIT Bombay</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Embedded OpenStreetMap View of IIT Bombay -->
+        <div class="lg:col-span-7">
+          <div class="rounded-2xl overflow-hidden border border-slate-200 shadow-sm bg-slate-100 h-80 sm:h-96 relative">
+            <iframe 
+              title="IIT Bombay Campus Map"
+              class="w-full h-full border-0"
+              loading="lazy"
+              src="https://www.openstreetmap.org/export/embed.html?bbox=72.9050%2C19.1240%2C72.9250%2C19.1400&amp;layer=mapnik&amp;marker=19.1334%2C72.9133">
+            </iframe>
+          </div>
+          <div class="mt-3 flex justify-end">
+            <a 
+              href="https://www.openstreetmap.org/?mlat=19.1334&amp;mlon=72.9133#map=16/19.1334/72.9133" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              class="text-xs font-semibold text-sky-600 hover:text-sky-700 inline-flex items-center gap-1">
+              <span>Open Larger Campus Map</span>
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================== -->
+  <!-- FOOTER                                                                -->
+  <!-- ===================================================================== -->
+  <footer class="bg-navy-950 text-slate-400 py-12 border-t border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-8 pb-8 border-b border-slate-800/80">
+        <div>
+          <span class="font-display font-bold text-white text-lg tracking-tight">SPARC<span class="text-sky-400">Neuro</span>27</span>
+          <p class="text-xs text-slate-400 mt-1 max-w-md">
+            Neuromorphic Computing for Edge AI: Device, Circuit, Algorithm Co-Design • Sponsored by SPARC, Ministry of Education, Govt. of India (Project Code: RD/0126-SPARC00-001).
+          </p>
+        </div>
+
+        <!-- Institutional Logos in White Badges -->
+        <div class="flex flex-wrap items-center gap-3">
+          <div class="bg-white rounded-xl px-3 py-1.5 flex items-center gap-2">
+            <img 
+              src="https://upload.wikimedia.org/wikipedia/en/1/1d/Indian_Institute_of_Technology_Bombay_Logo.svg" 
+              alt="IIT Bombay" 
+              class="h-8 w-8 object-contain"
+              onerror="this.onerror=null; this.src='https://placehold.co/64x64/0F172A/FFFFFF?text=IITB';"
+            />
+            <span class="text-xs font-bold text-slate-900">IIT Bombay</span>
+          </div>
+          <div class="bg-white rounded-xl px-3 py-1.5">
+            <img 
+              src="https://www.bits-pilani.ac.in/wp-content/uploads/SPARC_COllabration.png" 
+              alt="SPARC" 
+              class="h-8 w-auto object-contain"
+              onerror="this.onerror=null; this.src='https://placehold.co/120x36/0284C7/FFFFFF?text=SPARC';"
+            />
+          </div>
+          <div class="bg-white rounded-xl px-3 py-1.5">
+            <img 
+              src="https://upload.wikimedia.org/wikipedia/commons/b/bd/Ministry_of_Education_India.svg" 
+              alt="Ministry of Education" 
+              class="h-8 w-auto object-contain"
+              onerror="this.onerror=null; this.src='https://placehold.co/120x36/1E293B/FFFFFF?text=MoE+India';"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div class="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs">
+        <p>© 2026–2027 Department of Electrical Engineering, IIT Bombay. All rights reserved.</p>
+        <p class="font-mono text-slate-500">sparcneuro27.in</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===================================================================== -->
+  <!-- INTERACTIVE REGISTRATION MODAL                                        -->
+  <!-- ===================================================================== -->
+  <div id="reg-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-navy-950/75 backdrop-blur-xs p-4">
+    <div class="bg-white rounded-2xl max-w-lg w-full p-6 sm:p-8 shadow-2xl border border-slate-200 relative max-h-[90vh] overflow-y-auto">
+      <button 
+        onclick="closeRegModal()" 
+        aria-label="Close Modal"
+        class="absolute top-5 right-5 p-2 rounded-xl text-slate-400 hover:text-slate-700 hover:bg-slate-100 cursor-pointer">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+
+      <!-- Registration Form Content -->
+      <div id="reg-form-container">
+        <span class="text-xs font-bold uppercase tracking-wider text-sky-600">Jan 11–12, 2027 • IIT Bombay</span>
+        <h3 class="font-display font-extrabold text-xl sm:text-2xl text-slate-900 mt-1">Workshop Registration</h3>
+        <p class="text-xs sm:text-sm text-slate-500 mt-1 mb-5">Complete your details below to register interest for the SPARC workshop.</p>
+
+        <form id="workshop-reg-form" onsubmit="handleRegistration(event)" class="space-y-4">
+          <div>
+            <label class="block text-xs font-semibold text-slate-700 mb-1">Full Name *</label>
+            <input type="text" required placeholder="e.g., Dr. Ananya Sharma" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-sky-500" />
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+            <div>
+              <label class="block text-xs font-semibold text-slate-700 mb-1">Designation / Role *</label>
+              <select required class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm bg-white focus:outline-none focus:ring-2 focus:ring-sky-500">
+                <option value="">Select role...</option>
+                <option value="Faculty">Faculty Member</option>
+                <option value="Postdoc">Postdoctoral Researcher</option>
+                <option value="PhD">PhD Scholar</option>
+                <option value="Masters">M.Tech / M.S. Student</option>
+                <option value="BTech">B.Tech Student</option>
+                <option value="Industry">Industry / R&amp;D Lab</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-slate-700 mb-1">Phone Number *</label>
+              <input type="tel" required placeholder="+91 98765 43210" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-sky-500" />
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-xs font-semibold text-slate-700 mb-1">Institute / Organization *</label>
+            <input type="text" required placeholder="e.g., IIT Bombay / NIT Trichy / IISc Bangalore" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-sky-500" />
+          </div>
+
+          <div>
+            <label class="block text-xs font-semibold text-slate-700 mb-1">Official Email Address *</label>
+            <input type="email" required placeholder="name@institute.ac.in" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-sky-500" />
+          </div>
+
+          <div>
+            <label class="block text-xs font-semibold text-slate-700 mb-1">Research Interest / Poster Title (Optional)</label>
+            <textarea rows="2" placeholder="Briefly mention your area in devices, circuits, or SNN algorithms..." class="w-full px-3.5 py-2 rounded-xl border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-sky-500"></textarea>
+          </div>
+
+          <button type="submit" class="w-full bg-sky-600 hover:bg-sky-700 text-white font-bold text-sm py-3 rounded-xl shadow-sm transition-colors cursor-pointer">
+            Confirm Registration
+          </button>
+        </form>
+      </div>
+
+      <!-- Registration Confirmation State -->
+      <div id="reg-success-container" class="hidden text-center py-6">
+        <div class="w-14 h-14 rounded-2xl bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto mb-4">
+          <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+          </svg>
+        </div>
+        <h4 class="font-display font-extrabold text-xl text-slate-900">Application Recorded!</h4>
+        <p class="text-sm text-slate-600 mt-2 leading-relaxed">
+          Thank you for registering for <strong>Neuromorphic Computing for Edge AI (Jan 11–12, 2027)</strong> at IIT Bombay. Shortlisted participants will receive an official confirmation email from the organizing team.
+        </p>
+        <div class="mt-6 flex flex-wrap justify-center gap-3">
+          <button onclick="downloadCalendarICS()" class="px-4 py-2.5 rounded-xl bg-sky-50 text-sky-700 font-semibold text-xs border border-sky-200 hover:bg-sky-100 cursor-pointer">
+            Download Calendar (.ics)
+          </button>
+          <button onclick="closeRegModal()" class="px-5 py-2.5 rounded-xl bg-navy-900 text-white font-semibold text-xs hover:bg-slate-800 cursor-pointer">
+            Done
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================================================================== -->
+  <!-- JAVASCRIPT: CANVAS ANIMATION, SCHEDULE TABS, MODAL & CALENDAR         -->
+  <!-- ===================================================================== -->
+  <script>
+    // 1. Mobile Navigation Toggle
+    const mobileBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    mobileBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+    });
+
+    // 2. Schedule Day Switcher
+    function switchDay(day) {
+      const btn1 = document.getElementById('tab-day1');
+      const btn2 = document.getElementById('tab-day2');
+      const panel1 = document.getElementById('panel-day1');
+      const panel2 = document.getElementById('panel-day2');
+
+      if (day === 1) {
+        btn1.className = 'px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all bg-navy-900 text-white shadow-xs cursor-pointer';
+        btn2.className = 'px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all text-slate-600 hover:text-slate-900 cursor-pointer';
+        panel1.classList.remove('hidden');
+        panel2.classList.add('hidden');
+      } else {
+        btn2.className = 'px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all bg-navy-900 text-white shadow-xs cursor-pointer';
+        btn1.className = 'px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all text-slate-600 hover:text-slate-900 cursor-pointer';
+        panel2.classList.remove('hidden');
+        panel1.classList.add('hidden');
+      }
+    }
+
+    // 3. Registration Modal Controls
+    const regModal = document.getElementById('reg-modal');
+    const formContainer = document.getElementById('reg-form-container');
+    const successContainer = document.getElementById('reg-success-container');
+
+    function openRegModal() {
+      formContainer.classList.remove('hidden');
+      successContainer.classList.add('hidden');
+      regModal.classList.remove('hidden');
+      regModal.classList.add('flex');
+    }
+
+    function closeRegModal() {
+      regModal.classList.add('hidden');
+      regModal.classList.remove('flex');
+    }
+
+    function handleRegistration(e) {
+      e.preventDefault();
+      formContainer.classList.add('hidden');
+      successContainer.classList.remove('hidden');
+      document.getElementById('workshop-reg-form').reset();
+    }
+
+    // Close modal on backdrop click
+    regModal.addEventListener('click', (e) => {
+      if (e.target === regModal) closeRegModal();
+    });
+
+    // 4. Generate & Download .ics Calendar Invite for Jan 11–12, 2027
+    function downloadCalendarICS() {
+      const icsContent = [
+        'BEGIN:VCALENDAR',
+        'VERSION:2.0',
+        'PRODID:-//IIT Bombay//SPARC Neuromorphic Workshop 2027//EN',
+        'BEGIN:VEVENT',
+        'UID:sparcneuro27-iitb@iitb.ac.in',
+        'DTSTAMP:20261119T100000Z',
+        'DTSTART:20270111T033000Z',
+        'DTEND:20270112T113000Z',
+        'SUMMARY:SPARC Workshop: Neuromorphic Computing for Edge AI',
+        'LOCATION:Department of Electrical Engineering, IIT Bombay, Powai, Mumbai 400076',
+        'DESCRIPTION:Two-day SPARC International Workshop on Neuromorphic Computing for Edge AI: Device, Circuit, Algorithm Co-Design (Jan 11-12, 2027, 9:00 AM - 5:00 PM IST). Project Code: RD/0126-SPARC00-001.',
+        'END:VEVENT',
+        'END:VCALENDAR'
+      ].join('\r\n');
+
+      const blob = new Blob([icsContent], { type: 'text/calendar;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'SPARC_Neuromorphic_Workshop_IITB_2027.ics';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    }
+
+    // 5. Subtle Neural Synapse / Crossbar Node Canvas Animation in Hero
+    window.addEventListener('load', () => {
+      const canvas = document.getElementById('neuralCanvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      let width, height, nodes;
+
+      function initCanvas() {
+        const rect = canvas.parentElement.getBoundingClientRect();
+        width = canvas.width = rect.width;
+        height = canvas.height = rect.height;
+        const count = Math.min(48, Math.floor((width * height) / 18000));
+        nodes = Array.from({ length: count }, () => ({
+          x: Math.random() * width,
+          y: Math.random() * height,
+          vx: (Math.random() - 0.5) * 0.45,
+          vy: (Math.random() - 0.5) * 0.45,
+          r: Math.random() * 2 + 1.5
+        }));
+      }
+
+      function draw() {
+        ctx.clearRect(0, 0, width, height);
+        for (let i = 0; i < nodes.length; i++) {
+          const n = nodes[i];
+          n.x += n.vx;
+          n.y += n.vy;
+
+          if (n.x < 0 || n.x > width) n.vx *= -1;
+          if (n.y < 0 || n.y > height) n.vy *= -1;
+
+          // Draw synaptic links
+          for (let j = i + 1; j < nodes.length; j++) {
+            const m = nodes[j];
+            const dist = Math.hypot(n.x - m.x, n.y - m.y);
+            if (dist < 140) {
+              ctx.beginPath();
+              ctx.moveTo(n.x, n.y);
+              ctx.lineTo(m.x, m.y);
+              ctx.strokeStyle = `rgba(56, 189, 248, ${0.22 * (1 - dist / 140)})`;
+              ctx.lineWidth = 1;
+              ctx.stroke();
+            }
+          }
+
+          // Draw neuron node
+          ctx.beginPath();
+          ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
+          ctx.fillStyle = 'rgba(125, 211, 252, 0.65)';
+          ctx.fill();
+        }
+        requestAnimationFrame(draw);
+      }
+
+      initCanvas();
+      draw();
+      window.addEventListener('resize', initCanvas);
+    });
+  </script>
+</body>
+</html>
