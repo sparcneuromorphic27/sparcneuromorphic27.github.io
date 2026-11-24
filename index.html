@@ -39,9 +39,9 @@
   </script>
 
   <style>
-    /* Custom subtle glassmorphism and scrollbar styling */
+    /* Custom subtle glassmorphism and hero gradient styling */
     .glass-nav {
-      background: rgba(255, 255, 255, 0.92);
+      background: rgba(255, 255, 255, 0.94);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
     }
@@ -56,40 +56,40 @@
 <body class="bg-slate-50 text-slate-800 antialiased selection:bg-sky-600 selection:text-white">
 
   <!-- ===================================================================== -->
-  <!-- TOP INSTITUTIONAL STRIP                                               -->
+  <!-- TOP INSTITUTIONAL STRIP (ENLARGED LOGOS)                              -->
   <!-- ===================================================================== -->
-  <div class="bg-white border-b border-slate-200 py-2.5 px-4 sm:px-6 lg:px-8">
+  <div class="bg-white border-b border-slate-200 py-3.5 px-4 sm:px-6 lg:px-8">
     <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-4">
       <!-- Left: IIT Bombay & Dept. of EE -->
-      <div class="flex items-center gap-3">
+      <div class="flex items-center gap-3.5 sm:gap-4">
         <img 
           src="https://upload.wikimedia.org/wikipedia/en/1/1d/Indian_Institute_of_Technology_Bombay_Logo.svg" 
           alt="IIT Bombay Logo" 
-          class="h-10 w-10 object-contain"
-          onerror="this.onerror=null; this.src='https://placehold.co/80x80/0F172A/FFFFFF?text=IITB';"
+          class="h-14 w-14 sm:h-16 sm:w-16 object-contain shrink-0"
+          onerror="this.onerror=null; this.src='https://placehold.co/96x96/0F172A/FFFFFF?text=IITB';"
         />
         <div class="leading-tight">
-          <p class="text-xs sm:text-sm font-bold text-slate-900 tracking-tight">Department of Electrical Engineering</p>
-          <p class="text-[11px] sm:text-xs text-slate-500 font-medium">Indian Institute of Technology Bombay, Mumbai</p>
+          <p class="text-sm sm:text-base font-bold text-slate-900 tracking-tight">Department of Electrical Engineering</p>
+          <p class="text-xs sm:text-sm text-slate-600 font-medium mt-0.5">Indian Institute of Technology Bombay, Mumbai</p>
         </div>
       </div>
 
-      <!-- Right: SPARC & Ministry of Education Logos -->
-      <div class="flex items-center gap-4 sm:gap-6">
-        <div class="flex items-center gap-2 bg-slate-50 px-2.5 py-1 rounded-lg border border-slate-200/80">
+      <!-- Right: Enlarged SPARC & Ministry of Education Logos -->
+      <div class="flex items-center gap-3 sm:gap-5">
+        <div class="flex items-center bg-slate-50 px-3 py-1.5 rounded-xl border border-slate-200/90 shadow-2xs">
           <img 
             src="https://www.bits-pilani.ac.in/wp-content/uploads/SPARC_COllabration.png" 
             alt="SPARC Collaboration Logo" 
-            class="h-8 sm:h-9 w-auto object-contain"
-            onerror="this.onerror=null; this.src='https://placehold.co/140x40/0284C7/FFFFFF?text=SPARC+India';"
+            class="h-12 sm:h-15 md:h-16 w-auto object-contain"
+            onerror="this.onerror=null; this.src='https://placehold.co/180x64/0284C7/FFFFFF?text=SPARC+India';"
           />
         </div>
-        <div class="hidden sm:flex items-center gap-2 bg-slate-50 px-2.5 py-1 rounded-lg border border-slate-200/80">
+        <div class="flex items-center bg-slate-50 px-3 py-1.5 rounded-xl border border-slate-200/90 shadow-2xs">
           <img 
             src="https://upload.wikimedia.org/wikipedia/commons/b/bd/Ministry_of_Education_India.svg" 
             alt="Ministry of Education, Government of India" 
-            class="h-8 sm:h-9 w-auto object-contain"
-            onerror="this.onerror=null; this.src='https://placehold.co/140x40/1E293B/FFFFFF?text=MoE+India';"
+            class="h-12 sm:h-15 md:h-16 w-auto object-contain"
+            onerror="this.onerror=null; this.src='https://placehold.co/180x64/1E293B/FFFFFF?text=MoE+India';"
           />
         </div>
       </div>
@@ -97,21 +97,16 @@
   </div>
 
   <!-- ===================================================================== -->
-  <!-- STICKY NAVIGATION BAR                                                 -->
+  <!-- STICKY NAVIGATION BAR (NO SPARCNeuro27 / N27 LOGO)                    -->
   <!-- ===================================================================== -->
   <header class="sticky top-0 z-40 glass-nav border-b border-slate-200/80 shadow-xs">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center justify-between h-16">
-        <!-- Brand / Domain Tag -->
-        <a href="#" class="flex items-center gap-2.5 group">
-          <span class="inline-flex items-center justify-center w-9 h-9 rounded-xl bg-navy-900 text-sky-400 font-display font-extrabold text-sm shadow-sm group-hover:bg-sky-600 group-hover:text-white transition-colors">
-            N27
-          </span>
-          <div>
-            <span class="font-display font-bold text-slate-900 text-base tracking-tight block leading-none">SPARC<span class="text-sky-600">Neuro</span>27</span>
-            <span class="text-[10px] font-medium text-slate-500 uppercase tracking-wider">IIT Bombay • Jan 11–12, 2027</span>
-          </div>
-        </a>
+      <div class="flex items-center justify-between h-15">
+        <!-- Event Date & Venue Quick Pill -->
+        <div class="flex items-center gap-2 text-xs sm:text-sm font-semibold text-slate-700">
+          <span class="w-2 h-2 rounded-full bg-sky-600"></span>
+          <span>Jan 11–12, 2027 • IIT Bombay</span>
+        </div>
 
         <!-- Desktop Navigation Links -->
         <nav class="hidden md:flex items-center gap-7 text-sm font-medium text-slate-600">
@@ -119,7 +114,7 @@
           <a href="#speakers" class="hover:text-sky-600 transition-colors">PI &amp; Speakers</a>
           <a href="#schedule" class="hover:text-sky-600 transition-colors">Schedule</a>
           <a href="#registration" class="hover:text-sky-600 transition-colors">Registration</a>
-          <a href="#venue" class="hover:text-sky-600 transition-colors">Venue</a>
+          <a href="#venue" class="hover:text-sky-600 transition-colors">Venue &amp; Helpline</a>
         </nav>
 
         <!-- Desktop CTA & Mobile Menu Toggle -->
@@ -127,7 +122,7 @@
           <button 
             onclick="openRegModal()" 
             class="bg-sky-600 hover:bg-sky-700 text-white font-semibold text-sm px-4 py-2.5 rounded-xl shadow-sm hover:shadow transition-all cursor-pointer">
-            Register Now
+            Register Free
           </button>
           <button 
             id="mobile-menu-btn" 
@@ -147,7 +142,7 @@
       <a href="#speakers" class="block px-3 py-2.5 rounded-xl text-sm font-medium text-slate-700 hover:bg-slate-50 hover:text-sky-600">PI &amp; Speakers</a>
       <a href="#schedule" class="block px-3 py-2.5 rounded-xl text-sm font-medium text-slate-700 hover:bg-slate-50 hover:text-sky-600">Schedule</a>
       <a href="#registration" class="block px-3 py-2.5 rounded-xl text-sm font-medium text-slate-700 hover:bg-slate-50 hover:text-sky-600">Registration</a>
-      <a href="#venue" class="block px-3 py-2.5 rounded-xl text-sm font-medium text-slate-700 hover:bg-slate-50 hover:text-sky-600">Venue &amp; Travel</a>
+      <a href="#venue" class="block px-3 py-2.5 rounded-xl text-sm font-medium text-slate-700 hover:bg-slate-50 hover:text-sky-600">Venue &amp; Helpline</a>
     </div>
   </header>
 
@@ -224,7 +219,7 @@
           <button 
             onclick="openRegModal()" 
             class="inline-flex items-center justify-center gap-2 bg-sky-500 hover:bg-sky-400 text-navy-950 font-bold text-sm sm:text-base px-6 py-3.5 rounded-xl shadow-lg shadow-sky-500/25 transition-all cursor-pointer">
-            <span>Register for Workshop (₹499)</span>
+            <span>Register for Workshop (Free)</span>
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 7l5 5m0 0l-5 5m5-5H6" />
             </svg>
@@ -233,7 +228,7 @@
           <a 
             href="#venue" 
             class="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/15 text-white border border-white/20 font-semibold text-sm sm:text-base px-6 py-3.5 rounded-xl transition-all">
-            <span>Venue &amp; Contact</span>
+            <span>Venue &amp; Helpline</span>
           </a>
 
           <button 
@@ -272,7 +267,7 @@
           </div>
         </div>
 
-        <!-- Right Collaboration Box (Cleaned without project code or header tag) -->
+        <!-- Right Research Theme Box -->
         <div class="lg:col-span-5">
           <div class="bg-slate-50 border border-slate-200 rounded-2xl p-6 sm:p-7 shadow-xs">
             <span class="text-xs font-bold uppercase tracking-wider text-sky-600 block mb-2">Research Theme</span>
@@ -368,7 +363,7 @@
           Project Investigators &amp; Invited Speakers
         </h2>
         <p class="text-slate-600 text-base mt-3">
-          Featuring the Indo-UK SPARC Principal Investigators from IIT Bombay and The University of Sheffield, joined by distinguished invited speakers from IIT Madras.
+          Featuring the Indo-UK SPARC Principal Investigators from IIT Bombay and The University of Sheffield, alongside distinguished invited speakers from Sheffield and IIT Madras.
         </p>
       </div>
 
@@ -385,7 +380,7 @@
             <div class="flex items-center gap-4 mb-4">
               <div class="relative w-20 h-20 rounded-2xl overflow-hidden bg-slate-100 border border-slate-200 shrink-0">
                 <img 
-                  src="https://www.ee.iitb.ac.in/images/professors/debanjan-bhowmik.webp" 
+                  src="https://snqai.wordpress.com/wp-content/uploads/2023/12/headshotdebanjan2-1.jpg?w=1440" 
                   alt="Prof. Debanjan Bhowmik" 
                   class="w-full h-full object-cover object-top"
                   onerror="this.onerror=null; this.src='https://placehold.co/160x160/0F172A/38BDF8?text=DB';"
@@ -426,9 +421,13 @@
           <!-- 2. Prof. Merlyne De Souza (International PI / Co-PI) -->
           <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-xs hover:shadow-md transition-all flex flex-col">
             <div class="flex items-center gap-4 mb-4">
-              <div class="relative w-20 h-20 rounded-2xl overflow-hidden bg-gradient-to-br from-navy-900 to-indigo-800 text-white border border-slate-200 shrink-0 flex flex-col items-center justify-center shadow-inner">
-                <span class="font-display font-extrabold text-2xl tracking-tight text-sky-300">MD</span>
-                <span class="text-[9px] uppercase tracking-widest text-slate-300 mt-0.5">Sheffield</span>
+              <div class="relative w-20 h-20 rounded-2xl overflow-hidden bg-slate-100 border border-slate-200 shrink-0">
+                <img 
+                  src="https://sheffield.ac.uk/sites/default/files/styles/profile_square_lg_2x/public/2020-07/Merlyne.png?h=ed0ea6f1&itok=kTBY4jqQ" 
+                  alt="Prof. Merlyne De Souza" 
+                  class="w-full h-full object-cover object-top"
+                  onerror="this.onerror=null; this.src='https://placehold.co/160x160/1E293B/38BDF8?text=MD';"
+                />
               </div>
               <div>
                 <span class="inline-block text-[11px] font-bold uppercase tracking-wider bg-indigo-50 text-indigo-700 border border-indigo-200 px-2.5 py-0.5 rounded-full mb-1.5">
@@ -507,7 +506,7 @@
         </div>
       </div>
 
-      <!-- GROUP 2: INVITED SPEAKERS (Pictures removed as requested) -->
+      <!-- GROUP 2: INVITED SPEAKERS (Includes Prof. Merlyne De Souza, Dr. Matt Ellis, Prof. Bhaswar Chakrabarti, Prof. V. Srinivasa Chakravarthy) -->
       <div>
         <div class="flex items-center gap-3 mb-6">
           <h3 class="font-display font-bold text-lg sm:text-xl text-slate-900">Invited Speakers</h3>
@@ -515,7 +514,53 @@
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <!-- 4. Prof. Bhaswar Chakrabarti (IIT Madras) -->
+          <!-- Speaker 1: Prof. Merlyne De Souza -->
+          <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-xs hover:shadow-md transition-all flex flex-col sm:flex-row gap-5 items-start">
+            <div class="w-20 h-20 rounded-2xl overflow-hidden bg-slate-100 border border-slate-200 shrink-0">
+              <img 
+                src="https://sheffield.ac.uk/sites/default/files/styles/profile_square_lg_2x/public/2020-07/Merlyne.png?h=ed0ea6f1&itok=kTBY4jqQ" 
+                alt="Prof. Merlyne De Souza" 
+                class="w-full h-full object-cover object-top"
+                onerror="this.onerror=null; this.src='https://placehold.co/160x160/1E293B/38BDF8?text=MD';"
+              />
+            </div>
+            <div class="flex-1">
+              <span class="inline-block text-[11px] font-bold uppercase tracking-wider bg-emerald-50 text-emerald-700 border border-emerald-200 px-2.5 py-0.5 rounded-full mb-1.5">
+      <!-- GROUP 2: INVITED SPEAKERS (Text-only academic cards, no profile pictures) -->
+      <div>
+        <div class="flex items-center gap-3 mb-6">
+          <h3 class="font-display font-bold text-lg sm:text-xl text-slate-900">Invited Speakers</h3>
+          <span class="h-px flex-1 bg-slate-200"></span>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <!-- Speaker 1: Prof. Merlyne De Souza -->
+          <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-xs hover:shadow-md transition-all">
+            <span class="inline-block text-[11px] font-bold uppercase tracking-wider bg-emerald-50 text-emerald-700 border border-emerald-200 px-2.5 py-0.5 rounded-full mb-2">
+              Invited Speaker
+            </span>
+            <h4 class="font-display font-bold text-lg text-slate-900">Prof. Merlyne De Souza</h4>
+            <p class="text-xs font-semibold text-slate-500 mt-0.5">Professor, School of Electrical &amp; Electronic Engineering</p>
+            <p class="text-sm text-emerald-700 font-semibold mt-0.5 mb-3">The University of Sheffield, UK</p>
+            <p class="text-xs text-slate-600 leading-relaxed pt-3 border-t border-slate-100">
+              <strong>Expertise:</strong> Semiconductor device physics, memristive oxide synapses, post-CMOS nanoelectronics, and compact device modeling.
+            </p>
+          </div>
+
+          <!-- Speaker 2: Dr. Matt Ellis -->
+          <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-xs hover:shadow-md transition-all">
+            <span class="inline-block text-[11px] font-bold uppercase tracking-wider bg-emerald-50 text-emerald-700 border border-emerald-200 px-2.5 py-0.5 rounded-full mb-2">
+              Invited Speaker
+            </span>
+            <h4 class="font-display font-bold text-lg text-slate-900">Dr. Matt Ellis</h4>
+            <p class="text-xs font-semibold text-slate-500 mt-0.5">Senior Lecturer, School of Computer Science</p>
+            <p class="text-sm text-emerald-700 font-semibold mt-0.5 mb-3">The University of Sheffield, UK</p>
+            <p class="text-xs text-slate-600 leading-relaxed pt-3 border-t border-slate-100">
+              <strong>Expertise:</strong> Computational magnetism, atomistic spin dynamics, neuromorphic algorithms, and physical reservoir computing.
+            </p>
+          </div>
+
+          <!-- Speaker 3: Prof. Bhaswar Chakrabarti (IIT Madras) -->
           <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-xs hover:shadow-md transition-all">
             <span class="inline-block text-[11px] font-bold uppercase tracking-wider bg-emerald-50 text-emerald-700 border border-emerald-200 px-2.5 py-0.5 rounded-full mb-2">
               Invited Speaker
@@ -528,7 +573,7 @@
             </p>
           </div>
 
-          <!-- 5. Prof. V. Srinivasa Chakravarthy (IIT Madras) -->
+          <!-- Speaker 4: Prof. V. Srinivasa Chakravarthy (IIT Madras) -->
           <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-xs hover:shadow-md transition-all">
             <span class="inline-block text-[11px] font-bold uppercase tracking-wider bg-emerald-50 text-emerald-700 border border-emerald-200 px-2.5 py-0.5 rounded-full mb-2">
               Invited Speaker
@@ -579,7 +624,7 @@
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
         <!-- Left Info -->
         <div class="lg:col-span-7">
-          <span class="text-xs font-bold uppercase tracking-widest text-sky-600">Participation &amp; Fee</span>
+          <span class="text-xs font-bold uppercase tracking-widest text-sky-600">Participation</span>
           <h2 class="font-display font-extrabold text-2xl sm:text-4xl text-slate-900 mt-2 mb-4 tracking-tight">
             Registration &amp; Eligibility
           </h2>
@@ -589,35 +634,41 @@
 
           <ul class="space-y-3 text-sm text-slate-700 mb-8">
             <li class="flex items-start gap-3">
-              <svg class="w-5 h-5 text-sky-600 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg class="w-5 h-5 text-emerald-600 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
               </svg>
-              <span><strong>Registration Fee: ₹499 per person</strong> (applicable to all participating attendees; payment barcode/link appears immediately after submitting your registration form).</span>
+              <span><strong>Free Registration:</strong> Supported under the SPARC initiative (Ministry of Education, Govt. of India). No registration fee is required.</span>
             </li>
             <li class="flex items-start gap-3">
               <svg class="w-5 h-5 text-sky-600 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
               </svg>
-              <span><strong>Limited Seats:</strong> Early registration is encouraged to secure seating at FC Kohli Auditorium.</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <svg class="w-5 h-5 text-sky-600 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
-              </svg>
-              <span><strong>Participation Certificate:</strong> Official IIT Bombay – SPARC workshop certificate provided upon full attendance.</span>
+              <span><strong>Limited Seats &amp; Hospitality:</strong> Please specify your meal preference (Veg / Non-Veg) during registration. Registrations close on <strong>December 22, 2026</strong>.</span>
             </li>
             <li class="flex items-start gap-3">
               <svg class="w-5 h-5 text-sky-600 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
               </svg>
-              <span><strong>Official Inquiries:</strong> <a href="mailto:sparcneuromorphic27@gmail.com" class="text-sky-700 font-semibold hover:underline">sparcneuromorphic27@gmail.com</a></span>
+              <span><strong>Official Email:</strong> <a href="mailto:sparcneuromorphic27@gmail.com" class="text-sky-700 font-semibold hover:underline">sparcneuromorphic27@gmail.com</a></span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-sky-600 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+              </svg>
+              <span>
+                <strong>Helpline Numbers:</strong> 
+                <a href="tel:+917205259962" class="text-sky-700 font-bold hover:underline">7205259962</a> / 
+                <a href="tel:+919080674402" class="text-sky-700 font-bold hover:underline">9080674402</a> 
+                <span class="text-slate-500 font-medium">(Call: 12:00 PM – 6:00 PM)</span>
+              </span>
             </li>
           </ul>
 
           <button 
+            id="section-reg-btn"
             onclick="openRegModal()" 
             class="inline-flex items-center gap-2 bg-navy-900 hover:bg-sky-600 text-white font-bold text-sm sm:text-base px-6 py-3.5 rounded-xl shadow-sm transition-colors cursor-pointer">
-            <span>Proceed to Registration (₹499)</span>
+            <span>Submit Free Registration</span>
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
             </svg>
@@ -631,21 +682,21 @@
               <svg class="w-5 h-5 text-sky-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
-              <span>Important Dates &amp; Fee</span>
+              <span>Important Dates</span>
             </h3>
 
             <div class="space-y-4">
               <div class="flex items-center justify-between pb-3.5 border-b border-slate-100">
                 <span class="text-sm font-medium text-slate-600">Registration Fee</span>
-                <span class="text-sm font-extrabold text-emerald-700 bg-emerald-50 px-2.5 py-0.5 rounded-lg">₹499 / person</span>
+                <span class="text-sm font-extrabold text-emerald-700 bg-emerald-50 border border-emerald-200 px-2.5 py-0.5 rounded-lg">Free</span>
               </div>
               <div class="flex items-center justify-between pb-3.5 border-b border-slate-100">
                 <span class="text-sm font-medium text-slate-600">Registration Opens</span>
                 <span class="text-sm font-bold text-slate-900">December 1, 2026</span>
               </div>
               <div class="flex items-center justify-between pb-3.5 border-b border-slate-100">
-                <span class="text-sm font-medium text-slate-600">Application Deadline</span>
-                <span class="text-sm font-bold text-amber-700 bg-amber-50 px-2.5 py-0.5 rounded-lg">December 22, 2026</span>
+                <span class="text-sm font-medium text-slate-600">Registration End Date</span>
+                <span class="text-sm font-bold text-amber-700 bg-amber-50 border border-amber-200 px-2.5 py-0.5 rounded-lg">December 22, 2026</span>
               </div>
               <div class="flex items-center justify-between pb-3.5 border-b border-slate-100">
                 <span class="text-sm font-medium text-slate-600">Confirmation Notice</span>
@@ -663,13 +714,13 @@
   </section>
 
   <!-- ===================================================================== -->
-  <!-- VENUE & TRAVEL SECTION                                                -->
+  <!-- VENUE, TRAVEL & HELPLINE SECTION                                      -->
   <!-- ===================================================================== -->
   <section id="venue" class="py-16 sm:py-24 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
         <div class="lg:col-span-5">
-          <span class="text-xs font-bold uppercase tracking-widest text-sky-600">Location &amp; Contact</span>
+          <span class="text-xs font-bold uppercase tracking-widest text-sky-600">Location &amp; Helpline</span>
           <h2 class="font-display font-extrabold text-2xl sm:text-3xl text-slate-900 mt-2 mb-2 tracking-tight">
             FC Kohli Auditorium, IIT Bombay
           </h2>
@@ -689,13 +740,17 @@
               <p class="font-bold text-slate-900 mb-1">By Rail &amp; Metro</p>
               <p>Nearest suburban railway stations are <strong>Kanjurmarg</strong> (~3 km) and <strong>Vikhroli</strong> (~4 km) on the Central Line.</p>
             </div>
-            <div class="bg-sky-50/70 border border-sky-200 rounded-xl p-4">
-              <p class="font-bold text-slate-900 mb-1">Official Workshop Email</p>
-              <p class="text-slate-700">For queries regarding registration, payment, or travel:</p>
-              <a href="mailto:sparcneuromorphic27@gmail.com" class="inline-flex items-center gap-1.5 font-bold text-sky-700 hover:text-sky-800 mt-1">
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-                <span>sparcneuromorphic27@gmail.com</span>
-              </a>
+            <div class="bg-sky-50/80 border border-sky-200 rounded-xl p-4 space-y-2">
+              <p class="font-bold text-slate-900">Workshop Helpline &amp; Official Contact</p>
+              <p class="text-slate-700">
+                <strong>Call (12:00 PM – 6:00 PM):</strong><br />
+                <a href="tel:+917205259962" class="font-bold text-sky-700 hover:underline">+91 7205259962</a> &nbsp;|&nbsp; 
+                <a href="tel:+919080674402" class="font-bold text-sky-700 hover:underline">+91 9080674402</a>
+              </p>
+              <p class="text-slate-700">
+                <strong>Email:</strong> 
+                <a href="mailto:sparcneuromorphic27@gmail.com" class="font-bold text-sky-700 hover:underline">sparcneuromorphic27@gmail.com</a>
+              </p>
             </div>
           </div>
         </div>
@@ -734,39 +789,46 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-8 pb-8 border-b border-slate-800/80">
         <div>
-          <span class="font-display font-bold text-white text-lg tracking-tight">SPARC<span class="text-sky-400">Neuro</span>27</span>
-          <p class="text-xs text-slate-400 mt-1 max-w-md">
-            Neuromorphic Computing for Edge AI: Device, Circuit, Algorithm Co-Design • FC Kohli Auditorium, IIT Bombay • Sponsored by SPARC, Ministry of Education, Govt. of India.
+          <p class="font-display font-bold text-white text-base sm:text-lg tracking-tight">
+            Neuromorphic Computing for Edge AI: Device, Circuit, Algorithm Co-Design
           </p>
-          <p class="text-xs text-sky-400 mt-2">
-            Official Contact: <a href="mailto:sparcneuromorphic27@gmail.com" class="underline hover:text-white">sparcneuromorphic27@gmail.com</a>
+          <p class="text-xs text-slate-400 mt-1 max-w-lg">
+            FC Kohli Auditorium, Department of Electrical Engineering, IIT Bombay • Sponsored by SPARC, Ministry of Education, Govt. of India.
           </p>
+          <div class="mt-2.5 space-y-1 text-xs">
+            <p class="text-sky-400">
+              Email: <a href="mailto:sparcneuromorphic27@gmail.com" class="underline hover:text-white">sparcneuromorphic27@gmail.com</a>
+            </p>
+            <p class="text-slate-300">
+              Helpline (12:00 PM – 6:00 PM): <a href="tel:+917205259962" class="text-white font-semibold hover:underline">7205259962</a> / <a href="tel:+919080674402" class="text-white font-semibold hover:underline">9080674402</a>
+            </p>
+          </div>
         </div>
 
         <!-- Institutional Logos in White Badges -->
         <div class="flex flex-wrap items-center gap-3">
-          <div class="bg-white rounded-xl px-3 py-1.5 flex items-center gap-2">
+          <div class="bg-white rounded-xl px-3.5 py-2 flex items-center gap-2.5">
             <img 
               src="https://upload.wikimedia.org/wikipedia/en/1/1d/Indian_Institute_of_Technology_Bombay_Logo.svg" 
               alt="IIT Bombay" 
-              class="h-8 w-8 object-contain"
+              class="h-10 w-10 object-contain"
               onerror="this.onerror=null; this.src='https://placehold.co/64x64/0F172A/FFFFFF?text=IITB';"
             />
             <span class="text-xs font-bold text-slate-900">IIT Bombay</span>
           </div>
-          <div class="bg-white rounded-xl px-3 py-1.5">
+          <div class="bg-white rounded-xl px-3.5 py-2">
             <img 
               src="https://www.bits-pilani.ac.in/wp-content/uploads/SPARC_COllabration.png" 
               alt="SPARC" 
-              class="h-8 w-auto object-contain"
+              class="h-10 w-auto object-contain"
               onerror="this.onerror=null; this.src='https://placehold.co/120x36/0284C7/FFFFFF?text=SPARC';"
             />
           </div>
-          <div class="bg-white rounded-xl px-3 py-1.5">
+          <div class="bg-white rounded-xl px-3.5 py-2">
             <img 
               src="https://upload.wikimedia.org/wikipedia/commons/b/bd/Ministry_of_Education_India.svg" 
               alt="Ministry of Education" 
-              class="h-8 w-auto object-contain"
+              class="h-10 w-auto object-contain"
               onerror="this.onerror=null; this.src='https://placehold.co/120x36/1E293B/FFFFFF?text=MoE+India';"
             />
           </div>
@@ -775,13 +837,21 @@
 
       <div class="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs">
         <p>© 2026–2027 Department of Electrical Engineering, IIT Bombay. All rights reserved.</p>
-        <p class="font-mono text-slate-500">sparcneuro27.in</p>
+        <div class="flex items-center gap-4">
+          <button 
+            onclick="openAdminModal()" 
+            class="text-slate-500 hover:text-sky-400 underline transition-colors cursor-pointer"
+            title="Download Excel/CSV list of registered participants (Shortcut: Ctrl+Shift+E)">
+            Organizer Export (Excel/CSV)
+          </button>
+          <span class="font-mono text-slate-500">sparcneuro27.in</span>
+        </div>
       </div>
     </div>
   </footer>
 
   <!-- ===================================================================== -->
-  <!-- TWO-STEP REGISTRATION & PAYMENT MODAL                                 -->
+  <!-- FREE REGISTRATION MODAL (WITH VEG / NON-VEG & DEC 22 CUTOFF)          -->
   <!-- ===================================================================== -->
   <div id="reg-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-navy-950/75 backdrop-blur-xs p-4">
     <div class="bg-white rounded-2xl max-w-lg w-full p-6 sm:p-8 shadow-2xl border border-slate-200 relative max-h-[90vh] overflow-y-auto">
@@ -794,15 +864,15 @@
         </svg>
       </button>
 
-      <!-- STEP 1: REGISTRATION FORM -->
+      <!-- REGISTRATION FORM -->
       <div id="reg-form-container">
         <div class="flex items-center gap-2">
-          <span class="text-xs font-bold uppercase tracking-wider text-sky-600">Step 1 of 2 • Participant Details</span>
-          <span class="text-[11px] font-bold bg-emerald-50 text-emerald-700 border border-emerald-200 px-2 py-0.5 rounded-md">Fee: ₹499</span>
+          <span class="text-xs font-bold uppercase tracking-wider text-sky-600">Jan 11–12, 2027 • IIT Bombay</span>
+          <span class="text-[11px] font-bold bg-emerald-50 text-emerald-700 border border-emerald-200 px-2 py-0.5 rounded-md">Free Registration</span>
         </div>
         <h3 class="font-display font-extrabold text-xl sm:text-2xl text-slate-900 mt-1">Workshop Registration</h3>
         <p class="text-xs sm:text-sm text-slate-500 mt-1 mb-5">
-          Fill in your details below. Your registration will be forwarded to <strong class="text-slate-700">sparcneuromorphic27@gmail.com</strong> and you will proceed to the payment page.
+          Registration closes on <strong class="text-slate-700">December 22, 2026</strong>. Details are forwarded to <strong class="text-slate-700">sparcneuromorphic27@gmail.com</strong>.
         </p>
 
         <form id="workshop-reg-form" onsubmit="handleRegistration(event)" class="space-y-4">
@@ -840,48 +910,54 @@
             <input id="reg-email" name="email" type="email" required placeholder="name@institute.ac.in" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-sky-500" />
           </div>
 
+          <!-- Food Preference (Veg / Non-Veg) -->
           <div>
-            <label class="block text-xs font-semibold text-slate-700 mb-1">Research Interest / Poster Title (Optional)</label>
-            <textarea id="reg-interest" name="interest" rows="2" placeholder="Briefly mention your area in devices, circuits, or SNN algorithms..." class="w-full px-3.5 py-2 rounded-xl border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-sky-500"></textarea>
+            <label class="block text-xs font-semibold text-slate-700 mb-1.5">Food Preference (Lunch &amp; Refreshments) *</label>
+            <div class="grid grid-cols-2 gap-3">
+              <label class="flex items-center gap-2.5 p-3 rounded-xl border border-slate-300 cursor-pointer hover:bg-emerald-50/50 has-[:checked]:border-emerald-600 has-[:checked]:bg-emerald-50">
+                <input type="radio" name="food" value="Veg" required class="accent-emerald-600 w-4 h-4" />
+                <span class="text-sm font-semibold text-slate-800">Veg</span>
+              </label>
+              <label class="flex items-center gap-2.5 p-3 rounded-xl border border-slate-300 cursor-pointer hover:bg-amber-50/50 has-[:checked]:border-amber-600 has-[:checked]:bg-amber-50">
+                <input type="radio" name="food" value="Non-Veg" required class="accent-amber-600 w-4 h-4" />
+                <span class="text-sm font-semibold text-slate-800">Non-Veg</span>
+              </label>
+            </div>
           </div>
 
           <button id="reg-submit-btn" type="submit" class="w-full bg-sky-600 hover:bg-sky-700 text-white font-bold text-sm py-3.5 rounded-xl shadow-sm transition-colors cursor-pointer">
-            Submit Details &amp; Proceed to Payment (₹499) →
+            Complete Free Registration
           </button>
         </form>
       </div>
 
-      <!-- STEP 2: PAYMENT PAGE / QR BARCODE PLACEHOLDER -->
-      <div id="reg-payment-container" class="hidden text-center py-2">
-        <span class="text-xs font-bold uppercase tracking-wider text-emerald-700 bg-emerald-50 border border-emerald-200 px-3 py-1 rounded-full">
-          Step 2 of 2 • Fee Payment (₹499)
-        </span>
-        <h4 class="font-display font-extrabold text-xl text-slate-900 mt-3">Registration Details Recorded!</h4>
-        <p class="text-xs sm:text-sm text-slate-600 mt-1.5 leading-relaxed">
-          Thank you, <strong id="confirm-participant-name" class="text-slate-900">Participant</strong>. Your registration information has been sent to <strong class="text-sky-700">sparcneuromorphic27@gmail.com</strong>.
-        </p>
-
-        <!-- Payment & QR Barcode Box (Ready for future bank/UPI QR link) -->
-        <div class="mt-5 bg-slate-50 border-2 border-dashed border-slate-300 rounded-2xl p-5">
-          <div class="flex items-center justify-between text-xs font-semibold text-slate-600 pb-3 mb-4 border-b border-slate-200">
-            <span>Registration Fee Payable</span>
-            <span class="text-base font-extrabold text-slate-900">₹499.00 INR</span>
-          </div>
-
-          <!-- Placeholder QR Frame -->
-          <div class="w-44 h-44 mx-auto rounded-2xl bg-white border border-slate-200 shadow-xs flex flex-col items-center justify-center p-4">
-            <svg class="w-12 h-12 text-slate-300 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4v1m6 11h2m-6 0h-2v4m0-11v3m0 0h.01M12 12h4.01M16 20h4M4 12h4m12 0h.01M5 8h2a1 1 0 001-1V5a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1zm12 0h2a1 1 0 001-1V5a1 1 0 00-1-1h-2a1 1 0 00-1 1v2a1 1 0 001 1zM5 20h2a1 1 0 001-1v-2a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1z" />
-            </svg>
-            <span class="text-[11px] font-bold text-slate-700">Payment QR / Link</span>
-            <span class="text-[10px] text-slate-400 mt-0.5">To Be Updated Soon</span>
-          </div>
-
-          <p class="text-xs text-slate-600 mt-4 leading-relaxed">
-            The official payment QR barcode and bank transfer link will be enabled here shortly. For immediate payment assistance, contact <a href="mailto:sparcneuromorphic27@gmail.com" class="text-sky-700 font-semibold underline">sparcneuromorphic27@gmail.com</a>.
-          </p>
+      <!-- REGISTRATION CLOSED NOTICE (Automatically shown after Dec 22, 2026) -->
+      <div id="reg-closed-container" class="hidden text-center py-6">
+        <div class="w-14 h-14 rounded-2xl bg-amber-100 text-amber-600 flex items-center justify-center mx-auto mb-4">
+          <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
         </div>
+        <h4 class="font-display font-extrabold text-xl text-slate-900">Registration Closed</h4>
+        <p class="text-sm text-slate-600 mt-2 leading-relaxed">
+          Online registration for the SPARC Neuromorphic Computing Workshop closed on <strong>December 22, 2026</strong>. For urgent queries, please contact <a href="mailto:sparcneuromorphic27@gmail.com" class="text-sky-700 font-semibold underline">sparcneuromorphic27@gmail.com</a> or call our helpline (<a href="tel:+917205259962" class="font-semibold">7205259962</a> / <a href="tel:+919080674402" class="font-semibold">9080674402</a>, 12 PM – 6 PM).
+        </p>
+        <button onclick="closeRegModal()" class="mt-6 px-5 py-2.5 rounded-xl bg-navy-900 text-white font-semibold text-xs hover:bg-slate-800 cursor-pointer">
+          Close
+        </button>
+      </div>
 
+      <!-- REGISTRATION SUCCESS CONFIRMATION -->
+      <div id="reg-success-container" class="hidden text-center py-6">
+        <div class="w-14 h-14 rounded-2xl bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto mb-4">
+          <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+          </svg>
+        </div>
+        <h4 class="font-display font-extrabold text-xl text-slate-900">Registration Confirmed!</h4>
+        <p class="text-sm text-slate-600 mt-2 leading-relaxed">
+          Thank you, <strong id="confirm-participant-name" class="text-slate-900">Participant</strong>. Your free registration (with <strong id="confirm-food-pref" class="text-slate-800">Veg</strong> preference) has been recorded and sent to <strong class="text-sky-700">sparcneuromorphic27@gmail.com</strong>.
+        </p>
         <div class="mt-6 flex flex-wrap justify-center gap-3">
           <button onclick="downloadCalendarICS()" class="px-4 py-2.5 rounded-xl bg-sky-50 text-sky-700 font-semibold text-xs border border-sky-200 hover:bg-sky-100 cursor-pointer">
             Download Calendar (.ics)
@@ -895,9 +971,53 @@
   </div>
 
   <!-- ===================================================================== -->
-  <!-- JAVASCRIPT: CANVAS ANIMATION, MODAL, EMAIL FORWARDING & CALENDAR      -->
+  <!-- ORGANIZER EXCEL / CSV EXPORT MODAL (FOR POST-DEC 22 PARTICIPANT LIST) -->
+  <!-- ===================================================================== -->
+  <div id="admin-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-navy-950/75 backdrop-blur-xs p-4">
+    <div class="bg-white rounded-2xl max-w-lg w-full p-6 sm:p-8 shadow-2xl border border-slate-200 relative">
+      <button 
+        onclick="closeAdminModal()" 
+        aria-label="Close Organizer Modal"
+        class="absolute top-5 right-5 p-2 rounded-xl text-slate-400 hover:text-slate-700 hover:bg-slate-100 cursor-pointer">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+
+      <span class="text-xs font-bold uppercase tracking-wider text-indigo-600">Organizer Dashboard</span>
+      <h3 class="font-display font-extrabold text-xl text-slate-900 mt-1">Export Registered Participants (Excel / CSV)</h3>
+      <p class="text-xs sm:text-sm text-slate-600 mt-2 leading-relaxed">
+        Every individual registration is automatically emailed in real time to <strong>sparcneuromorphic27@gmail.com</strong>. You can also download all registrations recorded in this browser as an Excel-compatible <strong>.CSV</strong> spreadsheet or send a summary email after <strong>December 22, 2026</strong>.
+      </p>
+
+      <div class="mt-4 bg-slate-50 border border-slate-200 rounded-xl p-4 flex items-center justify-between">
+        <span class="text-xs font-semibold text-slate-600">Registrations Stored Locally:</span>
+        <span id="admin-reg-count" class="text-base font-extrabold text-sky-700">0</span>
+      </div>
+
+      <div class="mt-5 flex flex-col sm:flex-row gap-3">
+        <button 
+          onclick="exportRegistrationsCSV()" 
+          class="flex-1 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs sm:text-sm py-3 px-4 rounded-xl shadow-sm transition-colors cursor-pointer">
+          Download Excel (.CSV) File
+        </button>
+        <button 
+          onclick="emailSummaryToOrganizer()" 
+          class="flex-1 bg-navy-900 hover:bg-slate-800 text-white font-bold text-xs sm:text-sm py-3 px-4 rounded-xl shadow-sm transition-colors cursor-pointer">
+          Email List to sparcneuromorphic27@gmail.com
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================================================================== -->
+  <!-- JAVASCRIPT: CANVAS ANIMATION, MODAL, DEADLINE CHECK & EXCEL EXPORT    -->
   <!-- ===================================================================== -->
   <script>
+    // Registration Deadline: December 22, 2026 at 23:59:59 IST (+05:30)
+    const REGISTRATION_DEADLINE = new Date('2026-12-22T23:59:59+05:30');
+    const STORAGE_KEY = 'sparcneuro27_registrations';
+
     // 1. Mobile Navigation Toggle
     const mobileBtn = document.getElementById('mobile-menu-btn');
     const mobileMenu = document.getElementById('mobile-menu');
@@ -908,14 +1028,27 @@
       link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
     });
 
-    // 2. Two-Step Registration & Payment Modal Controls
+    // 2. Registration Modal Controls (with automatic Dec 22 deadline check)
     const regModal = document.getElementById('reg-modal');
     const formContainer = document.getElementById('reg-form-container');
-    const paymentContainer = document.getElementById('reg-payment-container');
+    const closedContainer = document.getElementById('reg-closed-container');
+    const successContainer = document.getElementById('reg-success-container');
+
+    function isRegistrationOpen() {
+      return new Date() <= REGISTRATION_DEADLINE;
+    }
 
     function openRegModal() {
-      formContainer.classList.remove('hidden');
-      paymentContainer.classList.add('hidden');
+      formContainer.classList.add('hidden');
+      closedContainer.classList.add('hidden');
+      successContainer.classList.add('hidden');
+
+      if (isRegistrationOpen()) {
+        formContainer.classList.remove('hidden');
+      } else {
+        closedContainer.classList.remove('hidden');
+      }
+
       regModal.classList.remove('hidden');
       regModal.classList.add('flex');
     }
@@ -925,21 +1058,46 @@
       regModal.classList.remove('flex');
     }
 
-    // Forward registration data to sparcneuromorphic27@gmail.com and transition to Payment screen
+    // Save entry locally and forward via FormSubmit to sparcneuromorphic27@gmail.com
     async function handleRegistration(e) {
       e.preventDefault();
+      if (!isRegistrationOpen()) {
+        openRegModal();
+        return;
+      }
+
       const submitBtn = document.getElementById('reg-submit-btn');
       const name = document.getElementById('reg-name').value.trim();
       const role = document.getElementById('reg-role').value;
       const phone = document.getElementById('reg-phone').value.trim();
       const institute = document.getElementById('reg-institute').value.trim();
       const email = document.getElementById('reg-email').value.trim();
-      const interest = document.getElementById('reg-interest').value.trim() || 'Not specified';
+      const foodEl = document.querySelector('input[name="food"]:checked');
+      const food = foodEl ? foodEl.value : 'Not specified';
+      const submittedAt = new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' });
 
       submitBtn.disabled = true;
       submitBtn.textContent = 'Submitting Registration...';
 
-      // Send notification to official workshop email via FormSubmit AJAX endpoint
+      // Store in localStorage for Excel/CSV export
+      try {
+        const existing = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
+        existing.push({
+          Sl_No: existing.length + 1,
+          Full_Name: name,
+          Designation: role,
+          Institute: institute,
+          Email: email,
+          Phone: phone,
+          Food_Preference: food,
+          Submitted_At_IST: submittedAt
+        });
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(existing));
+      } catch (storageErr) {
+        console.warn('Local storage unavailable:', storageErr);
+      }
+
+      // Send real-time notification email to sparcneuromorphic27@gmail.com
       try {
         await fetch('https://formsubmit.co/ajax/sparcneuromorphic27@gmail.com', {
           method: 'POST',
@@ -948,35 +1106,91 @@
             'Accept': 'application/json'
           },
           body: JSON.stringify({
-            _subject: `New Workshop Registration: ${name} (${institute})`,
+            _subject: `New Free Workshop Registration: ${name} (${institute}) [${food}]`,
             Full_Name: name,
             Designation: role,
-            Phone: phone,
             Institute: institute,
             Email: email,
-            Research_Interest: interest,
-            Fee_Applicable: 'INR 499'
+            Phone: phone,
+            Food_Preference: food,
+            Registration_Fee: 'FREE',
+            Submitted_At_IST: submittedAt
           })
         });
       } catch (err) {
-        // Fallback mailto trigger if network blocks external form endpoint
-        console.warn('Background submission fallback:', err);
+        console.warn('Background submission notice:', err);
       }
 
       document.getElementById('confirm-participant-name').textContent = name;
+      document.getElementById('confirm-food-pref').textContent = food;
       formContainer.classList.add('hidden');
-      paymentContainer.classList.remove('hidden');
+      successContainer.classList.remove('hidden');
       submitBtn.disabled = false;
-      submitBtn.textContent = 'Submit Details & Proceed to Payment (₹499) →';
+      submitBtn.textContent = 'Complete Free Registration';
       document.getElementById('workshop-reg-form').reset();
     }
 
-    // Close modal on backdrop click
     regModal.addEventListener('click', (e) => {
       if (e.target === regModal) closeRegModal();
     });
 
-    // 3. Generate & Download .ics Calendar Invite for Jan 11–12, 2027
+    // 3. Organizer Excel/CSV Export Controls
+    const adminModal = document.getElementById('admin-modal');
+
+    function openAdminModal() {
+      const list = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
+      document.getElementById('admin-reg-count').textContent = list.length;
+      adminModal.classList.remove('hidden');
+      adminModal.classList.add('flex');
+    }
+
+    function closeAdminModal() {
+      adminModal.classList.add('hidden');
+      adminModal.classList.remove('flex');
+    }
+
+    adminModal.addEventListener('click', (e) => {
+      if (e.target === adminModal) closeAdminModal();
+    });
+
+    // Keyboard shortcut Ctrl+Shift+E to open Organizer Export
+    document.addEventListener('keydown', (e) => {
+      if (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === 'e') {
+        e.preventDefault();
+        openAdminModal();
+      }
+    });
+
+    function exportRegistrationsCSV() {
+      const list = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
+      const headers = ['Sl_No', 'Full_Name', 'Designation', 'Institute', 'Email', 'Phone', 'Food_Preference', 'Submitted_At_IST'];
+      const rows = list.length > 0
+        ? list.map(item => headers.map(h => `"${String(item[h] || '').replace(/"/g, '""')}"`).join(','))
+        : ['"1","Sample Participant","PhD Scholar","IIT Bombay","sample@iitb.ac.in","+91 9000000000","Veg","24/11/2026"'];
+
+      const csvContent = '\uFEFF' + [headers.join(','), ...rows].join('\r\n');
+      const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'SPARC_Workshop_Registered_Participants_2027.csv';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    }
+
+    function emailSummaryToOrganizer() {
+      const list = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
+      const bodyLines = list.length > 0
+        ? list.map(r => `${r.Sl_No}. ${r.Full_Name} | ${r.Designation} | ${r.Institute} | ${r.Email} | ${r.Phone} | Food: ${r.Food_Preference}`)
+        : ['No local registrations recorded in this browser yet. Please check FormSubmit inbox for live entries.'];
+      const subject = encodeURIComponent('SPARC Neuromorphic Workshop 2027 - Registered Participants List');
+      const body = encodeURIComponent('Registered Participants Summary:\n\n' + bodyLines.join('\n'));
+      window.location.href = `mailto:sparcneuromorphic27@gmail.com?subject=${subject}&body=${body}`;
+    }
+
+    // 4. Generate & Download .ics Calendar Invite for Jan 11–12, 2027
     function downloadCalendarICS() {
       const icsContent = [
         'BEGIN:VCALENDAR',
@@ -984,12 +1198,12 @@
         'PRODID:-//IIT Bombay//SPARC Neuromorphic Workshop 2027//EN',
         'BEGIN:VEVENT',
         'UID:sparcneuro27-iitb@iitb.ac.in',
-        'DTSTAMP:20261119T100000Z',
+        'DTSTAMP:20261124T100000Z',
         'DTSTART:20270111T033000Z',
         'DTEND:20270112T113000Z',
         'SUMMARY:SPARC Workshop: Neuromorphic Computing for Edge AI',
         'LOCATION:FC Kohli Auditorium, IIT Bombay, Powai, Mumbai 400076',
-        'DESCRIPTION:Two-day SPARC International Workshop on Neuromorphic Computing for Edge AI: Device, Circuit, Algorithm Co-Design (Jan 11-12, 2027, 9:00 AM - 5:00 PM IST) at FC Kohli Auditorium, IIT Bombay. Contact: sparcneuromorphic27@gmail.com',
+        'DESCRIPTION:Two-day SPARC International Workshop on Neuromorphic Computing for Edge AI: Device, Circuit, Algorithm Co-Design (Jan 11-12, 2027, 9:00 AM - 5:00 PM IST) at FC Kohli Auditorium, IIT Bombay. Helpline: 7205259962 / 9080674402 (12 PM - 6 PM). Email: sparcneuromorphic27@gmail.com',
         'END:VEVENT',
         'END:VCALENDAR'
       ].join('\r\n');
@@ -1005,8 +1219,14 @@
       URL.revokeObjectURL(url);
     }
 
-    // 4. Subtle Neural Synapse / Crossbar Node Canvas Animation in Hero
+    // 5. Subtle Neural Synapse / Crossbar Node Canvas Animation in Hero
     window.addEventListener('load', () => {
+      // Update button text if past December 22, 2026
+      if (!isRegistrationOpen()) {
+        const secBtn = document.getElementById('section-reg-btn');
+        if (secBtn) secBtn.textContent = 'Registration Closed (Ended Dec 22, 2026)';
+      }
+
       const canvas = document.getElementById('neuralCanvas');
       if (!canvas) return;
       const ctx = canvas.getContext('2d');
@@ -1036,7 +1256,6 @@
           if (n.x < 0 || n.x > width) n.vx *= -1;
           if (n.y < 0 || n.y > height) n.vy *= -1;
 
-          // Draw synaptic links
           for (let j = i + 1; j < nodes.length; j++) {
             const m = nodes[j];
             const dist = Math.hypot(n.x - m.x, n.y - m.y);
@@ -1050,7 +1269,6 @@
             }
           }
 
-          // Draw neuron node
           ctx.beginPath();
           ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
           ctx.fillStyle = 'rgba(125, 211, 252, 0.65)';
